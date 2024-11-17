@@ -16,8 +16,8 @@ class CreateDoctorSpecialitiesTable extends Migration
         Schema::create('doctor_specialities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('date_birth')->nullable(false);
-            $table->date('date_admission')->nullable(true);
+            $table->date('date_start')->nullable(false);
+            $table->date('date_end')->default('2024-11-23');
             //FK
             $table->unsignedbigInteger('speciality_id');
             $table->foreign('speciality_id')->references('id')->on('specialities');
@@ -29,7 +29,7 @@ class CreateDoctorSpecialitiesTable extends Migration
             $table->foreign('department_id')->references('id')->on('departments');
         });
         //Проверка, что дата начала работы меньше даты ее завершения
-        DB::statement("ALTER TABLE doctor_specialities ADD CONSTRAINT valid_date_admission CHECK (date_admission <> NULL AND date_admission > date_birth OR date_admission = NULL)");
+        DB::statement("ALTER TABLE doctor_specialities ADD CONSTRAINT valid_date_end CHECK (date_end > date_start)");
     }
 
     /**
