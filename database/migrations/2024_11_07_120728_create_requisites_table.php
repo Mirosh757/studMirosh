@@ -24,7 +24,7 @@ class CreateRequisitesTable extends Migration
             $table->string('kpp', 9)->unique()->nullable(false);
             //FK
             $table->unsignedbigInteger('hospital_id');
-            $table->foreign('hospital_id')->references('id')->on('hospitals');
+            $table->foreign('hospital_id')->references('id')->on('hospitals')->cascadeOnUpdate()->cascadeOnDelete();
         });
         //Проверка на валидное, сокращенное название больницы
         DB::statement("ALTER TABLE requisites ADD CONSTRAINT valid_hospital_reduce_name CHECK (trim(hospital_reduce_name) <> '' AND hospital_reduce_name ~* '^[А-Яа-я0-9.,№ ]{5,}$')");

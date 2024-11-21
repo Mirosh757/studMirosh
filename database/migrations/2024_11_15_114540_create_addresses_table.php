@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->string('address')->nullable(false);
             //FK
             $table->unsignedbigInteger('general_page_id');
-            $table->foreign('general_page_id')->references('id')->on('general_pages');
+            $table->foreign('general_page_id')->references('id')->on('general_pages')->cascadeOnUpdate()->cascadeOnDelete();
         });
         
         //Проверка на валидный адрес

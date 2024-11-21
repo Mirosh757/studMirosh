@@ -20,13 +20,13 @@ class CreateDoctorSpecialitiesTable extends Migration
             $table->date('date_end')->default('2024-11-23');
             //FK
             $table->unsignedbigInteger('speciality_id');
-            $table->foreign('speciality_id')->references('id')->on('specialities');
+            $table->foreign('speciality_id')->references('id')->on('specialities')->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->unsignedbigInteger('doctor_id');
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->unsignedbigInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();
         });
         //Проверка, что дата начала работы меньше даты ее завершения
         DB::statement("ALTER TABLE doctor_specialities ADD CONSTRAINT valid_date_end CHECK (date_end > date_start)");
