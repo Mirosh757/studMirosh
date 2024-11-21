@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|d:\\ingit\\database\\lesson_0\\studmirosh\\1_lab_db\\1_lab_db\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\doctormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\doctormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\objectwatcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\objectwatcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_db\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7705D18-F0A6-45DD-AD21-92588943CE16}|1_lab_DB\\1_lab_DB.csproj|solutionrelative:1_lab_db\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DomainObject.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DomainObject.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\DomainObject.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DomainObject.cs",
+              "RelativeToolTip": "1_lab_DB\\DomainObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T10:49:41.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Program.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\Program.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Program.cs",
+              "RelativeToolTip": "1_lab_DB\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T10:18:28.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DBConnection.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DBConnection.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\DBConnection.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DBConnection.cs",
+              "RelativeToolTip": "1_lab_DB\\DBConnection.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAUwE0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T10:29:04.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Mapper.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\Mapper.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Mapper.cs",
+              "RelativeToolTip": "1_lab_DB\\Mapper.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwEgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T10:51:34.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DoctorMapper.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DoctorMapper.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\DoctorMapper.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\DoctorMapper.cs",
+              "RelativeToolTip": "1_lab_DB\\DoctorMapper.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAYwBkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T11:10:09.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Doctor.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\Doctor.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Doctor.cs",
+              "RelativeToolTip": "1_lab_DB\\Doctor.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAqwCAAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T11:09:41.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ObjectWatcher.cs",
+              "DocumentMoniker": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\ObjectWatcher.cs",
+              "RelativeDocumentMoniker": "1_lab_DB\\ObjectWatcher.cs",
+              "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\ObjectWatcher.cs",
+              "RelativeToolTip": "1_lab_DB\\ObjectWatcher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T10:52:53.96Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
