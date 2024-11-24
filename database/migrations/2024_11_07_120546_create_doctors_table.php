@@ -17,8 +17,9 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 50)->nullable(false);
-            $table->string('address', 64)->nullable(false);
+            $table->string('address')->nullable(false);
             $table->string('passport_details', 11)->unique()->nullable(false);
+            $table->date('date_birth')->nullable(false);
         });
         //Проверка, что имя не состоит из одних пробелов
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_name CHECK (trim(name) <> '' AND name ~* '^[^\\s]+.*$')");
@@ -28,6 +29,9 @@ class CreateDoctorsTable extends Migration
 
         //Проверка на валидные паспортные данные
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_passport_details CHECK (trim(passport_details) <> '' AND passport_details ~ '^[0-9]{10}$')");
+
+        //Проверкак на валиждную дату рождения
+        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_date_birth CHECK (date_birth <= CURRENT_DATE AND date_birth >= '1880-01-01')");
     }
 
     /**
