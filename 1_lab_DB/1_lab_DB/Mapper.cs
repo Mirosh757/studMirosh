@@ -42,14 +42,16 @@ namespace _1_lab_DB
             }
             return domainObjects;
         }
-        public void Delete(int id)
+        public int Delete(int id)
         {
-            DeleteStmt(id);
+            string query = $"DELETE FROM {tName} WHERE id = {id}";
+            return _connection.QueryOnChange(query);
         }
-        public void DeleteMany(int[] idTable) 
+        public int DeleteMany(int[] idTable) 
         {
             for(int i = 0;i < idTable.Length;i++)
-                DeleteStmt(idTable[i]);
+                Delete(idTable[i]);
+            return idTable.Length;
         }
         public int Insert(DomainObject domainObject)
         {
@@ -63,16 +65,11 @@ namespace _1_lab_DB
         protected abstract List<int> SelectAll(string table_name);
         protected int InsertStmt(DomainObject domainObject)
         {
-            string query = $"INSERT INTO {domainObject.GetTable()} VALUES({domainObject.GetInfo()})";
+            string query = $"INSERT INTO {domainObject.GetTable()} VALUES({domainObject.GetInfoForInsertOrUpdate()})";
             //query = "INSERT INTO TableComplexNumber(RealNumber, ImiginaryNumber, TableTypeNumber_Id) VALUES(4, 5, 3)";
-            int k = _connection.InsertQuery(query);
+            int k = _connection.QueryOnChange(query);
             return k;
         }
         protected abstract int UpdateStmt(DomainObject domainObject);
-        protected void DeleteStmt(int id)
-        {
-            string query = $"DELETE FROM {tName} WHERE id = {id}";
-            _connection.DeleteDB(query);
-        }
     }
 }

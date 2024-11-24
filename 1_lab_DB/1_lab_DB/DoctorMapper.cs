@@ -9,11 +9,10 @@ namespace _1_lab_DB
 {
     internal class DoctorMapper : Mapper
     {
-        static int column = 6;
+        static int column = 7;
         public DoctorMapper()
         {
-            Doctor doctor = new Doctor();
-            tName = doctor.NameTable;
+            tName = "doctors";
         }
         protected override DomainObject SelectStmt(string object_id)
         {
@@ -22,16 +21,18 @@ namespace _1_lab_DB
             string _data = _connection.SelectQuery(query, column);
             Console.Write($"Из таблицы {tName}; id = {id}\n");
             string[] _getData = _data.Split('_');
-            _objectsList.Add(object_id, new Doctor(id, _getData[1], _getData[2], _getData[3], _getData[4], _getData[5]));
+            _objectsList.Add(object_id, new Doctor(id, StringToDateTime(_getData[1]), StringToDateTime(_getData[2]), _getData[3], _getData[4], _getData[5], StringToDate(_getData[6])));
             return _objectsList.GetObject(object_id);
         }
         protected override int UpdateStmt(DomainObject domainObject)
         {
             string line = domainObject.GetInfo();
-            string[] data = line.Split(',');
-            string query = $"UPDATE {domainObject.NameTable} SET created_at = {data[0]}, updated_at = {data[1]}, name = {data[2]}, address ={data[3]}, address = {data[4]}, passport_details = {data[5]} WHERE Id = {domainObject.Id}";
+            //while(line.IndexOf(',') != -1)
+            line = line.Replace(',', '_');
+            string[] data = line.Split('_');
+            string query = $"UPDATE {domainObject.NameTable} SET created_at = {data[0]}, updated_at = '{DateTime.Now}', name = {data[2]}, address = {data[3]}, passport_details = {data[4]}, date_birth = {data[5]} WHERE Id = {domainObject.Id}";
             Console.WriteLine(query);
-            int k = _connection.UpdateDB(query);
+            int k = _connection.QueryOnChange(query);
             return k;
         }
         protected override List<int> SelectAll(string table_name)
@@ -39,6 +40,16 @@ namespace _1_lab_DB
             string query = $"SELECT id FROM {tName}";
             List<int> _data = _connection.SelectAll(query);
             return _data;
+        }
+        private DateTime StringToDateTime(string value)
+        {
+            string[] data = value.Split('.', ' ', ':');
+            return new DateTime(Int32.Parse(data[2]), Int32.Parse(data[1]), Int32.Parse(data[0]), Int32.Parse(data[3]), Int32.Parse(data[4]), Int32.Parse(data[5]));
+        }
+        public DateTime StringToDate(string value)
+        {
+            string[] data = value.Split('.', ' ', ':');
+            return new DateTime(Int32.Parse(data[2]), Int32.Parse(data[1]), Int32.Parse(data[0]));
         }
     }
 }

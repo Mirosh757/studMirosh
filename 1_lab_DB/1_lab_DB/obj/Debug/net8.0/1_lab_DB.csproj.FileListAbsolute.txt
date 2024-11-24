@@ -18,3 +18,23 @@ D:\Коды для проги\1_lab_DB\1_lab_DB\obj\Debug\net8.0\refint\1_lab_DB
 D:\Коды для проги\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.pdb
 D:\Коды для проги\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.genruntimeconfig.cache
 D:\Коды для проги\1_lab_DB\1_lab_DB\obj\Debug\net8.0\ref\1_lab_DB.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\1_lab_DB.exe
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\1_lab_DB.deps.json
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\1_lab_DB.runtimeconfig.json
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\1_lab_DB.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\1_lab_DB.pdb
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\bin\Debug\net8.0\Npgsql.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.csproj.AssemblyReference.cache
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.GeneratedMSBuildEditorConfig.editorconfig
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.AssemblyInfoInputs.cache
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.AssemblyInfo.cs
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.csproj.CoreCompileInputs.cache
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.sourcelink.json
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.csproj.Up2Date
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\refint\1_lab_DB.dll
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.pdb
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\1_lab_DB.genruntimeconfig.cache
+D:\InGit\DataBase\lesson_0\studMirosh\1_lab_DB\1_lab_DB\obj\Debug\net8.0\ref\1_lab_DB.dll

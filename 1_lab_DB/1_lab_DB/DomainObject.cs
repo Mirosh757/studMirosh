@@ -18,5 +18,6 @@ namespace _1_lab_DB
         }
         public abstract string GetInfo();
         public abstract string GetTable();
+        public abstract string GetInfoForInsertOrUpdate();
     }
 }

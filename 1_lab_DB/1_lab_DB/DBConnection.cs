@@ -32,7 +32,7 @@ namespace _1_lab_DB
         {
             OpenDBConnection();
             NpgsqlCommand _command = new NpgsqlCommand($"{query}", _npgsqlConnection);
-            Console.WriteLine(query);
+            //Console.WriteLine(query);
             NpgsqlDataReader reader = _command.ExecuteReader();
             List<int> line = new List<int>();
             if (reader.HasRows)
@@ -66,22 +66,7 @@ namespace _1_lab_DB
             CloseDBConnection();
             return line;
         }
-        public int InsertQuery(string query)
-        {
-            OpenDBConnection();
-            NpgsqlCommand _command = new NpgsqlCommand(query, _npgsqlConnection);
-            int k = _command.ExecuteNonQuery();
-            CloseDBConnection();
-            return k;
-        }
-        public void DeleteDB(string query)
-        {
-            OpenDBConnection();
-            NpgsqlCommand _command = new NpgsqlCommand(query, _npgsqlConnection);
-            _command.ExecuteNonQuery();
-            CloseDBConnection();
-        }
-        public int UpdateDB(string query)
+        public int QueryOnChange(string query)
         {
             OpenDBConnection();
             NpgsqlCommand _command = new NpgsqlCommand(query, _npgsqlConnection);
