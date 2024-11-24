@@ -25,7 +25,7 @@ class CreateDoctorsTable extends Migration
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_name CHECK (trim(name) <> '' AND name ~* '^[^\\s]+.*$')");
 
         //Проверка на валидный адрес
-        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_address CHECK (trim(address) <> '' AND address ~* '^[А-Яа-я0-9.,-<> №() ]{7,}$')");
+        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_address CHECK (trim(address) <> '' AND address ~* '^[А-Яа-я0-9.,-<>; №() ]{7,}$')");
 
         //Проверка на валидные паспортные данные
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_passport_details CHECK (trim(passport_details) <> '' AND passport_details ~ '^[0-9]{10}$')");
