@@ -16,11 +16,11 @@ namespace _1_lab_DB
             Console.WriteLine("Значения атрибутов писать через запятую\nname\t address\t passport_details\t date_birth");
             string line = Console.ReadLine();
             string[] data = line.Split(',');
-            Doctor doctor1 = new Doctor(DateTime.Now, DateTime.Now, data[0], data[1], data[2], _mapper.StringToDate(data[3]));
+            Doctor doctor1 = new Doctor(DateTime.Now, DateTime.Now, data[0], data[1], data[2], _mapper.StringToDateFromDataBase(data[3]));
             if (_doctor != doctor1)
                 _doctor = doctor1;
             else 
-                Console.WriteLine("Объект уже создан"); 
+                Console.WriteLine("Объект уже создан");
             flag = true;
             PrintMenu();
         }
@@ -42,14 +42,31 @@ namespace _1_lab_DB
         }
         private void GetObjectFromDataBase()
         {
-            Console.WriteLine("Введите id объекта");
-            string line = Console.ReadLine();
-            Doctor doctor1 = (Doctor)_mapper.Find(Int32.Parse(line));
-            if (_doctor != doctor1)
-                _doctor = doctor1;
-            else 
-                Console.WriteLine("Объект уже создан"); 
-            flag = true;
+            Console.WriteLine("1.   Для получения объекта сущности по id\t2.    Для получения всех объектов сущности");
+            string s = Console.ReadLine();
+            if (s.Length == 1)
+            {
+                if(s == "1")
+                {
+                    Console.WriteLine("Введите id объекта");
+                    string line = Console.ReadLine();
+                    Doctor doctor1 = (Doctor)_mapper.Find(Int32.Parse(line));
+                    if (_doctor != doctor1)
+                        _doctor = doctor1;
+                    else
+                        Console.WriteLine("Объект уже создан");
+                    flag = true;
+                }
+                else if(s == "2")
+                {
+                    List<Doctor> doctors = _mapper.FindAll();
+                    for(int i = 0;i < doctors.Count;i++)
+                    {
+                        Console.WriteLine($"{doctors[i].Id}, {doctors[i].GetInfo()}");
+                    }
+
+                }
+            }
             PrintMenu();
         }
         private void InsertObjectFromDataBase()
@@ -65,75 +82,58 @@ namespace _1_lab_DB
         }
         private void UpdateObjectFromDataBase()
         {
-            if (!flag)
-                Console.WriteLine("Объект еще не создан");
-            else
-            {
-                Console.WriteLine("Выберите один или несколько атрибутов, которые желаете изменить\n0.   name\t1.   address\t2.    passport_details\t3.    date_birth");
-                string line = Console.ReadLine();
-                string[] data = line.Split(' ');
-                for(int i = 0;i < data.Length;i++)
-                {
-                    if (data[i] != "0" || data[i] == "1" || data[i] == "2" || data[i] == "3")
-                    {
-                        Console.WriteLine("Введенно не верное число");
-                        PrintMenu();
-                    }
-                    else
-                    {
-                        switch (data[i])
-                        {
-                            case "0": _doctor.Name = Console.ReadLine(); break;
-                            case "1": _doctor.Address = Console.ReadLine(); break;
-                            case "2": _doctor.PassportDetails = Console.ReadLine(); break;
-                            case "3": _doctor.DateBirth = _mapper.StringToDate(Console.ReadLine()); break;
-                        }
-                    }
-                }
-                _mapper.Update(_doctor);
-                
-            }
+            Console.WriteLine("Введите сначал id объекта для удаления, после значения атрибутов\nводить все в одну строку; те атрибуты, значения которых вы не хотите менять, оставить прочерк(_); разделителями для ввода считать запятую(,)");
+            string line = Console.ReadLine();
+            string[] data = line.Split(",");
+            _doctor = (Doctor)_mapper.Find(Int32.Parse(data[0]));
+            if (data[1] != "_")
+                _doctor.Name = data[1];
+            if (data[2] != "_")
+                _doctor.Address = data[2];
+            if (data[3] != "_")
+                _doctor.PassportDetails = data[3];
+            if (data[4] != "_")
+                _doctor.DateBirth = _mapper.StringToDateFromDataBase(data[4]);
+            _mapper.Update(_doctor);
             PrintMenu();
         }
         private void DeleteObjectFromDataBase()
         {
-            if (!flag)
-                Console.WriteLine("Объект еще не создан\n");
-            else
+            Console.WriteLine("1.   Для удаления 1 объекта\t2.  Для удаления мн-ва объектов\n");
+            string line = Console.ReadLine();
+            try
             {
-                Console.WriteLine("1.   Для удаления 1 объекта\t2.  Для удаления мн-ва объектов\n");
-                string line = Console.ReadLine();
-                try
+                int k;
+                if (line == "1")
                 {
-                    int k;
-                    if (line == "1")
-                        k = _mapper.Delete(1);
+                        Console.WriteLine("Введите id для удаления");
+                        string s = Console.ReadLine();
+                        k = _mapper.Delete(Int32.Parse(s));
+                }
+                else
+                {
+                    if (line == "2")
+                    {
+                        Console.WriteLine("Введите через пробел все id, которые желаете удалить\n");
+                        string l = Console.ReadLine();
+                        string[] data = l.Split(' ');
+                        int[] ints = new int[data.Length];
+                        for (int i = 0; i < ints.Length; i++)
+                            ints[i] = Convert.ToInt32(data[i]);
+                        k = _mapper.DeleteMany(ints);
+                        Console.WriteLine($"Кол-во удаленных записей - {k}");
+                    }
                     else
                     {
-                        if (line == "2")
-                        {
-                            Console.WriteLine("Введите через пробел все id, которые желаете удалить\n");
-                            string l = Console.ReadLine();
-                            string[] data = l.Split(' ');
-                            int[] ints = new int[data.Length];
-                            for(int i = 0;i < ints.Length;i++)
-                                ints[i] = Convert.ToInt32(data[i]);
-                            k = _mapper.DeleteMany(ints);
-                            Console.WriteLine($"Кол-во удаленных записей - {k}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Введена не верная команда");
-                        }
+                        Console.WriteLine("Введена не верная команда");
                     }
                 }
-                catch
-                {
-                    Console.WriteLine("Введено не верное id");
-                }
+            }
+            catch
+            {
+                Console.WriteLine("Введено не верное id");
             }
             PrintMenu();
-
         }
         public void PrintMenu()
         {

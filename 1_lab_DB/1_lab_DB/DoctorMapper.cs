@@ -51,5 +51,11 @@ namespace _1_lab_DB
             string[] data = value.Split('.', ' ', ':');
             return new DateTime(Int32.Parse(data[2]), Int32.Parse(data[1]), Int32.Parse(data[0]));
         }
+        public DateTime StringToDateFromDataBase(string value)
+        {
+
+            string[] data = value.Split('.', ' ', ':', '-');
+            return new DateTime(Int32.Parse(data[0]), Int32.Parse(data[1]), Int32.Parse(data[2]));
+        }
     }
 }

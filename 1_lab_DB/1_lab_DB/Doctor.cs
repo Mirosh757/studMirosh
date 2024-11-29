@@ -83,10 +83,10 @@ namespace _1_lab_DB
         {
             set
             {
-                DateTime dateTime = new DateTime(2001, 01, 01);
-                if (value > dateTime)
-                    throw new ArgumentException("Дана рождения не может быть больше 2001-01-01");
-                _date_birth = dateTime;
+                DateTime dateTimeMax = new DateTime(2001, 01, 01), dateTimeMin = new DateTime(1880,01,01);
+                if (value > dateTimeMax || value < dateTimeMin)
+                    throw new ArgumentException("Дана рождения не может быть больше 2001-01-01 и меньше 1880-01-01");
+                _date_birth = value;
             }
             get => _date_birth;
         }
