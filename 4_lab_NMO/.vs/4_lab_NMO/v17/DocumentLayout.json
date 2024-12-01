@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|d:\\\u043A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_nmo\\4_lab_nmo\\multistepmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|solutionrelative:4_lab_nmo\\multistepmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_nmo\\runge-kuttamethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|solutionrelative:4_lab_nmo\\runge-kuttamethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_nmo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|solutionrelative:4_lab_nmo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_nmo\\trianglemethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF5C4465-3E43-44F4-9A94-862FEA1691CC}|4_lab_NMO\\4_lab_NMO.csproj|solutionrelative:4_lab_nmo\\trianglemethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MultiStepMethods.cs",
+              "DocumentMoniker": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\MultiStepMethods.cs",
+              "RelativeDocumentMoniker": "4_lab_NMO\\MultiStepMethods.cs",
+              "ToolTip": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\MultiStepMethods.cs",
+              "RelativeToolTip": "4_lab_NMO\\MultiStepMethods.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T12:46:05.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Runge-KuttaMethods.cs",
+              "DocumentMoniker": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\Runge-KuttaMethods.cs",
+              "RelativeDocumentMoniker": "4_lab_NMO\\Runge-KuttaMethods.cs",
+              "ToolTip": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\Runge-KuttaMethods.cs",
+              "RelativeToolTip": "4_lab_NMO\\Runge-KuttaMethods.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAA9wA0AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T09:07:32.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TriangleMethod.cs",
+              "DocumentMoniker": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\TriangleMethod.cs",
+              "RelativeDocumentMoniker": "4_lab_NMO\\TriangleMethod.cs",
+              "ToolTip": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\TriangleMethod.cs",
+              "RelativeToolTip": "4_lab_NMO\\TriangleMethod.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T07:15:23.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\Program.cs",
+              "RelativeDocumentMoniker": "4_lab_NMO\\Program.cs",
+              "ToolTip": "D:\\\u041A\u043E\u0434\u044B \u0434\u043B\u044F \u043F\u0440\u043E\u0433\u0438\\4_lab_NMO\\4_lab_NMO\\Program.cs",
+              "RelativeToolTip": "4_lab_NMO\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwCkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T07:14:19.993Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

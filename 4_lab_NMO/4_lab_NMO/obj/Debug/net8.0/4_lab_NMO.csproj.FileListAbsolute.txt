@@ -1,0 +1,15 @@
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\bin\Debug\net8.0\4_lab_NMO.exe
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\bin\Debug\net8.0\4_lab_NMO.deps.json
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\bin\Debug\net8.0\4_lab_NMO.runtimeconfig.json
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\bin\Debug\net8.0\4_lab_NMO.dll
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\bin\Debug\net8.0\4_lab_NMO.pdb
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.AssemblyInfoInputs.cache
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.AssemblyInfo.cs
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.csproj.CoreCompileInputs.cache
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.sourcelink.json
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.dll
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\refint\4_lab_NMO.dll
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.pdb
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\4_lab_NMO.genruntimeconfig.cache
+D:\Коды для проги\4_lab_NMO\4_lab_NMO\obj\Debug\net8.0\ref\4_lab_NMO.dll
