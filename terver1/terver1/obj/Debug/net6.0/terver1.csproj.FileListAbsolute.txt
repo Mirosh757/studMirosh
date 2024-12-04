@@ -1,0 +1,44 @@
+C:\Users\student\Desktop\laba2_322\terver1\bin\Debug\net6.0\terver1.exe
+C:\Users\student\Desktop\laba2_322\terver1\bin\Debug\net6.0\terver1.deps.json
+C:\Users\student\Desktop\laba2_322\terver1\bin\Debug\net6.0\terver1.runtimeconfig.json
+C:\Users\student\Desktop\laba2_322\terver1\bin\Debug\net6.0\terver1.dll
+C:\Users\student\Desktop\laba2_322\terver1\bin\Debug\net6.0\terver1.pdb
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.csproj.AssemblyReference.cache
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.AssemblyInfoInputs.cache
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.AssemblyInfo.cs
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.dll
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\refint\terver1.dll
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.pdb
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\terver1.genruntimeconfig.cache
+C:\Users\student\Desktop\laba2_322\terver1\obj\Debug\net6.0\ref\terver1.dll
+D:\terver1\terver1\bin\Debug\net6.0\terver1.exe
+D:\terver1\terver1\bin\Debug\net6.0\terver1.deps.json
+D:\terver1\terver1\bin\Debug\net6.0\terver1.runtimeconfig.json
+D:\terver1\terver1\bin\Debug\net6.0\terver1.dll
+D:\terver1\terver1\bin\Debug\net6.0\terver1.pdb
+D:\terver1\terver1\obj\Debug\net6.0\terver1.GeneratedMSBuildEditorConfig.editorconfig
+D:\terver1\terver1\obj\Debug\net6.0\terver1.AssemblyInfoInputs.cache
+D:\terver1\terver1\obj\Debug\net6.0\terver1.AssemblyInfo.cs
+D:\terver1\terver1\obj\Debug\net6.0\terver1.csproj.CoreCompileInputs.cache
+D:\terver1\terver1\obj\Debug\net6.0\terver1.dll
+D:\terver1\terver1\obj\Debug\net6.0\refint\terver1.dll
+D:\terver1\terver1\obj\Debug\net6.0\terver1.pdb
+D:\terver1\terver1\obj\Debug\net6.0\terver1.genruntimeconfig.cache
+D:\terver1\terver1\obj\Debug\net6.0\ref\terver1.dll
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.AssemblyInfoInputs.cache
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.AssemblyInfo.cs
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.csproj.CoreCompileInputs.cache
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.dll
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\refint\terver1.dll
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.pdb
+D:\Коды для проги\terver1\terver1\bin\Debug\net6.0\terver1.exe
+D:\Коды для проги\terver1\terver1\bin\Debug\net6.0\terver1.deps.json
+D:\Коды для проги\terver1\terver1\bin\Debug\net6.0\terver1.runtimeconfig.json
+D:\Коды для проги\terver1\terver1\bin\Debug\net6.0\terver1.dll
+D:\Коды для проги\terver1\terver1\bin\Debug\net6.0\terver1.pdb
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.genruntimeconfig.cache
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\ref\terver1.dll
+D:\Коды для проги\terver1\terver1\obj\Debug\net6.0\terver1.sourcelink.json
