@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -55,12 +55,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T10:18:28.967Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -74,7 +69,7 @@
               "RelativeDocumentMoniker": "1_lab_DB\\Facade.cs",
               "ToolTip": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\Facade.cs",
               "RelativeToolTip": "1_lab_DB\\Facade.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAuwJsAAABAAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAmwJsAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T12:54:51.773Z",
               "EditorCaption": ""
@@ -89,8 +84,7 @@
               "RelativeToolTip": "1_lab_DB\\DomainObject.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T10:49:41.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T10:49:41.088Z"
             },
             {
               "$type": "Document",
@@ -102,8 +96,7 @@
               "RelativeToolTip": "1_lab_DB\\DBConnection.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAAtwEMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T10:29:04.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T10:29:04.21Z"
             },
             {
               "$type": "Document",
@@ -115,8 +108,7 @@
               "RelativeToolTip": "1_lab_DB\\Mapper.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAwwDUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T10:51:34.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T10:51:34.079Z"
             },
             {
               "$type": "Document",
@@ -128,8 +120,7 @@
               "RelativeToolTip": "1_lab_DB\\DoctorMapper.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAswDgAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T11:10:09.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T11:10:09.941Z"
             },
             {
               "$type": "Document",
@@ -141,8 +132,7 @@
               "RelativeToolTip": "1_lab_DB\\Doctor.cs",
               "ViewState": "AQIAADsAAAAAAAAAAAAIwFoAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T11:09:41.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T11:09:41.612Z"
             },
             {
               "$type": "Document",
