@@ -20,9 +20,10 @@ namespace _1_lab_DB
         {
             if(tName != null)
             {
-                if (_objectsList.GetObject(tName + '_' + id) == null)
+                DomainObject domainObject = _objectsList.GetObject(tName + '_' + id);
+                if (domainObject == null)
                     return SelectStmt(tName + '_' + id);
-                return _objectsList.GetObject(tName + '_' + id);
+                return domainObject;
             }
             throw new Exception("Не задано имя таблицы");
         }

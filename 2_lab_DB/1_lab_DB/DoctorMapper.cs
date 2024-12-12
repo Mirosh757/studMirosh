@@ -59,20 +59,23 @@ namespace _1_lab_DB
 
         protected override List<int> SelectSearch(string[] attributes, int numberResults)
         {
+            for(int i = 0;i < attributes.Length;i++)
+            {
+                if (attributes[i].IndexOf(' ') == -1)
+                    attributes[i] = attributes[i].ToLower();
+            }
             List<int> result = new List<int>();
             string line = "1=1 ";
-            int j = 0;
             for(int i = 0;i < attributes.Length;i++)
             {
                 if (attributes[i] != "_")
                 {
                     switch(i){
-                        case 0: line += $"AND name = '{attributes[0]}'"; break;
-                        case 1: line += $"AND address = '{attributes[1]}'"; break;
-                        case 2: line += $"AND passport_details = '{attributes[2]}'"; break;
-                        case 3: line += $"AND data_birth = '{attributes[3]}'"; break;
+                        case 0: line += $"AND name LIKE '%{attributes[0]}%'"; break;
+                        case 1: line += $"AND address LIKE '%{attributes[1]}%'"; break;
+                        case 2: line += $"AND passport_details LIKE '%{attributes[2]}%'"; break;
+                        case 3: line += $"AND data_birth LIKE '%{attributes[3]}%'"; break;
                     }
-                    j++;
                 }
             }
             string query = $"SELECT id FROM {tName} WHERE {line} LIMIT {numberResults}";

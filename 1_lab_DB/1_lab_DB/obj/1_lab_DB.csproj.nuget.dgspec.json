@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj": {}
+    "D:\\InGit\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj": {}
   },
   "projects": {
-    "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj": {
+    "D:\\InGit\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj",
+        "projectUniqueName": "D:\\InGit\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj",
         "projectName": "1_lab_DB",
-        "projectPath": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj",
-        "packagesPath": "C:\\Users\\79965\\.nuget\\packages\\",
-        "outputPath": "D:\\InGit\\DataBase\\lesson_0\\studMirosh\\1_lab_DB\\1_lab_DB\\obj\\",
+        "projectPath": "D:\\InGit\\studMirosh\\1_lab_DB\\1_lab_DB\\1_lab_DB.csproj",
+        "packagesPath": "C:\\Users\\darty\\.nuget\\packages\\",
+        "outputPath": "D:\\InGit\\studMirosh\\1_lab_DB\\1_lab_DB\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\79965\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\darty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -66,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -151,6 +151,7 @@ namespace _1_lab_DB
                 Console.WriteLine($"{index}| {doctors[i].Id}, {doctors[i].GetInfo()}");
                 index++;
             }
+            PrintMenu();
         }
         public void PrintMenu()
         {

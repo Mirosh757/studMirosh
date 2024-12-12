@@ -26,7 +26,7 @@ namespace _1_lab_DB
         }
         public DBConnection()
         {
-            _npgsqlConnection = new NpgsqlConnection("Host=127.0.0.1;Username=postgres;Password=1;Database=doctors");
+            _npgsqlConnection = new NpgsqlConnection("Host=127.0.0.1;Username=postgres;Password=5dartyr5;Database=doctors");
         }
         public List<int> SelectAll(string query)
         {
