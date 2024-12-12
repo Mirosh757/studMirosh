@@ -16,9 +16,9 @@ class CreateDoctorsTable extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', 50)->nullable(false);
-            $table->string('address', 64)->nullable(false);
-            $table->string('passport_details', 11)->unique()->nullable(false);
+            $table->string('name', 150)->nullable(false);
+            $table->string('address')->nullable(false);
+            $table->string('passport_details', 10)->unique()->nullable(false);
         });
         //Проверка, что имя не состоит из одних пробелов
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_name CHECK (trim(name) <> '' AND name ~* '^[^\\s]+.*$')");

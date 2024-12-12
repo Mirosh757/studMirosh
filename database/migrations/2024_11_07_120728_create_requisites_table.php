@@ -18,7 +18,7 @@ class CreateRequisitesTable extends Migration
             $table->timestamps();
             $table->date('registration_date')->unique()->nullable(false);
             $table->string('hospital_reduce_name', 75)->unique()->nullable(false);
-            $table->string('name_legal_faces', 50)->unique()->nullable(false);
+            $table->string('name_legal_faces', 150)->unique()->nullable(false);
             $table->string('ogrn', 13)->unique()->nullable(false);
             $table->string('inn', 12)->unique()->nullable(false);
             $table->string('kpp', 9)->unique()->nullable(false);

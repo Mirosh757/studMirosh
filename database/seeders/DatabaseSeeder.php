@@ -542,71 +542,71 @@ class DatabaseSeeder extends Seeder
             'title'=>'имунолог'
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1967-03-12',
-            'date_admission'=>'2013-11-22',
+            'date_start'=>'1967-03-12',
+            'date_end'=>'2013-11-22',
             'speciality_id'=>$speciality1->id,
             'doctor_id'=>$doctor1->id,
             'department_id'=>$department1->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1955-12-17',
-            'date_admission'=>'2017-01-27',
+            'date_start'=>'1955-12-17',
+            'date_end'=>'2017-01-27',
             'speciality_id'=>$speciality1->id,
             'doctor_id'=>$doctor1->id,
             'department_id'=>$department1->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1967-08-27',
-            'date_admission'=>'2003-12-23',
+            'date_start'=>'1967-08-27',
+            'date_end'=>'2003-12-23',
             'speciality_id'=>$speciality2->id,
             'doctor_id'=>$doctor2->id,
             'department_id'=>$department1->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1971-01-10',
-            'date_admission'=>'2021-11-11',
+            'date_start'=>'1971-01-10',
+            'date_end'=>'2021-11-11',
             'speciality_id'=>$speciality3->id,
             'doctor_id'=>$doctor1->id,
             'department_id'=>$department2->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1988-02-28',
-            'date_admission'=>'2023-11-27',
+            'date_start'=>'1988-02-28',
+            'date_end'=>'2023-11-27',
             'speciality_id'=>$speciality4->id,
             'doctor_id'=>$doctor3->id,
             'department_id'=>$department3->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1934-07-17',
-            'date_admission'=>'1998-11-30',
+            'date_start'=>'1934-07-17',
+            'date_end'=>'1998-11-30',
             'speciality_id'=>$speciality5->id,
             'doctor_id'=>$doctor6->id,
             'department_id'=>$department4->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1923-03-12',
-            'date_admission'=>'1991-06-30',
+            'date_start'=>'1923-03-12',
+            'date_end'=>'1991-06-30',
             'speciality_id'=>$speciality6->id,
             'doctor_id'=>$doctor5->id,
             'department_id'=>$department4->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1955-12-22',
-            'date_admission'=>'2017-10-22',
+            'date_start'=>'1955-12-22',
+            'date_end'=>'2017-10-22',
             'speciality_id'=>$speciality7->id,
             'doctor_id'=>$doctor1->id,
             'department_id'=>$department5->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1961-01-31',
-            'date_admission'=>'2003-09-12',
+            'date_start'=>'1961-01-31',
+            'date_end'=>'2003-09-12',
             'speciality_id'=>$speciality8->id,
             'doctor_id'=>$doctor4->id,
             'department_id'=>$department5->id
         ));
         doctor_speciality::create(array(
-            'date_birth'=>'1969-08-22',
-            'date_admission'=>'2015-05-15',
+            'date_start'=>'1969-08-22',
+            'date_end'=>'2015-05-15',
             'speciality_id'=>$speciality9->id,
             'doctor_id'=>$doctor1->id,
             'department_id'=>$department6->id

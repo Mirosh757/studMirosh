@@ -16,7 +16,7 @@ class CreateRegionsTable extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('region_name', 50)->nullable(false);
+            $table->string('region_name', 150)->nullable(false);
         });
         //Проверка на валидное имя региона
         DB::statement("ALTER TABLE regions ADD CONSTRAINT valid_region_name CHECK (trim(region_name) <> '' AND region_name ~* '^[А-Яа-я-]{2,}$')");
