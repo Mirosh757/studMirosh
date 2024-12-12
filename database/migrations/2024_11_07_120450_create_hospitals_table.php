@@ -17,9 +17,9 @@ class CreateHospitalsTable extends Migration
             $table->timestamps();
             //FK
             $table->id('id');
-            $table->foreign('id')->references('id')->on('general_pages');
+            $table->foreign('id')->references('id')->on('general_pages')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedbigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->foreign('region_id')->references('id')->on('regions')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

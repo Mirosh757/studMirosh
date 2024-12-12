@@ -19,7 +19,7 @@ class CreatePhoneNumbersTable extends Migration
             $table->string('contact_phone_number', 11)->nullable(false);
             //FK
             $table->unsignedbigInteger('general_page_id');
-            $table->foreign('general_page_id')->references('id')->on('general_pages');
+            $table->foreign('general_page_id')->references('id')->on('general_pages')->cascadeOnUpdate()->cascadeOnDelete();
         });
         // Проверка на валидный телефон (11 цифр)
         DB::statement("ALTER TABLE phone_numbers ADD CONSTRAINT valid_contact_phone_number CHECK (contact_phone_number ~ '^[0-9]{11}$')");

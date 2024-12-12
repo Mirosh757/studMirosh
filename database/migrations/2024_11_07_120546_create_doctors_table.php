@@ -16,18 +16,28 @@ class CreateDoctorsTable extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+<<<<<<< HEAD
             $table->string('name', 150)->nullable(false);
             $table->string('address')->nullable(false);
             $table->string('passport_details', 10)->unique()->nullable(false);
+=======
+            $table->string('name', 50)->nullable(false);
+            $table->string('address')->nullable(false);
+            $table->string('passport_details', 11)->unique()->nullable(false);
+            $table->date('date_birth')->nullable(false);
+>>>>>>> 1c1bbd42265a521a3a00f48fb891dca16d8de4b1
         });
         //Проверка, что имя не состоит из одних пробелов
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_name CHECK (trim(name) <> '' AND name ~* '^[^\\s]+.*$')");
 
         //Проверка на валидный адрес
-        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_address CHECK (trim(address) <> '' AND address ~* '^[А-Яа-я0-9.,-<> №() ]{7,}$')");
+        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_address CHECK (trim(address) <> '' AND address ~* '^[А-Яа-я0-9.,-<>; №() ]{7,}$')");
 
         //Проверка на валидные паспортные данные
         DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_passport_details CHECK (trim(passport_details) <> '' AND passport_details ~ '^[0-9]{10}$')");
+
+        //Проверкак на валиждную дату рождения
+        DB::statement("ALTER TABLE doctors ADD CONSTRAINT valid_date_birth CHECK (date_birth <= CURRENT_DATE AND date_birth >= '1880-01-01')");
     }
 
     /**
