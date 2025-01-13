@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sKfC3UD+ris=",
+  "dgSpecHash": "8J4gewMvDoQ=",
   "success": true,
-  "projectFilePath": "D:\\Программы\\VS\\2_lab_No_Pattern\\1_lab_No_Pattern.csproj",
+  "projectFilePath": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\1_lab_No_Pattern.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\darty\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\darty\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",

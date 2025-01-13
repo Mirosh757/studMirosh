@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\",
+  "WorkspaceRootPath": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_no_pattern\\doctormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\ingit\\studmirosh\\2_lab_no_pattern\\doctormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|solutionrelative:doctormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_no_pattern\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\ingit\\studmirosh\\2_lab_no_pattern\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|solutionrelative:dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_no_pattern\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\ingit\\studmirosh\\2_lab_no_pattern\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|solutionrelative:facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_no_pattern\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\ingit\\studmirosh\\2_lab_no_pattern\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_no_pattern\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|d:\\ingit\\studmirosh\\2_lab_no_pattern\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D36401-9A8A-4C69-BCA4-88E2AC48E021}|1_lab_No_Pattern.csproj|solutionrelative:doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,25 +36,24 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Program.cs",
+              "DocumentMoniker": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Program.cs",
+              "ToolTip": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T01:29:53.42Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DoctorMapper.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\DoctorMapper.cs",
+              "DocumentMoniker": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\DoctorMapper.cs",
               "RelativeDocumentMoniker": "DoctorMapper.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\DoctorMapper.cs",
+              "ToolTip": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\DoctorMapper.cs",
               "RelativeToolTip": "DoctorMapper.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAAANMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAuwNMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T01:40:12.261Z",
               "EditorCaption": ""
@@ -63,35 +62,33 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Facade.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Facade.cs",
+              "DocumentMoniker": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Facade.cs",
               "RelativeDocumentMoniker": "Facade.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Facade.cs",
+              "ToolTip": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Facade.cs",
               "RelativeToolTip": "Facade.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T08:10:13.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T08:10:13.486Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Dbconnection.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Dbconnection.cs",
+              "DocumentMoniker": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Dbconnection.cs",
               "RelativeDocumentMoniker": "Dbconnection.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Dbconnection.cs",
+              "ToolTip": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Dbconnection.cs",
               "RelativeToolTip": "Dbconnection.cs",
               "ViewState": "AgIAABYAAAAAAAAAAIA1wCMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T01:36:15.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T01:36:15.777Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Doctor.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Doctor.cs",
+              "DocumentMoniker": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Doctor.cs",
               "RelativeDocumentMoniker": "Doctor.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_lab_No_Pattern\\Doctor.cs",
+              "ToolTip": "D:\\InGit\\studMirosh\\2_lab_No_Pattern\\Doctor.cs",
               "RelativeToolTip": "Doctor.cs",
               "ViewState": "AgIAAHAAAAAAAAAAAAAwwC4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
