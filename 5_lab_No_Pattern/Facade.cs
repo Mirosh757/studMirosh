@@ -14,16 +14,24 @@ namespace _5_lab_No_Pattern
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                Console.Write("Введите название региона\n region_name: ");
+                Console.Write("Введите название региона\nregion_name: ");
                 string line = Console.ReadLine().Trim();
-                while (Regex.IsMatch(line, @"[0-9 ]") || !Regex.IsMatch(line, @"\G[А-Яа-я -]") || line.Length < 2)
+                int forCreate = 0;
+                try
                 {
-                    Console.Write("Название города должно использовать только русские символы, без цифр и пробелов\nregion_name: ");
-                    line = Console.ReadLine();
+                    forCreate = db.Database.ExecuteSqlRaw($"CALL insert_region('{line}')");
                 }
-                int forCreate = db.Database.ExecuteSqlRaw($"CALL insert_region('{line}')");
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    RegionCreate();
+                    return;
+                }
                 if (forCreate != 0)
-                    Console.WriteLine("Вставка прошла успешно");
+                {
+                    int iD = db.regions.ToList().Last().id;
+                    Console.WriteLine($"Вставка прошла успешно\nОбъект вставлен с id = {iD}");
+                }
                 else
                     Console.WriteLine("Вставка не прошла успешно");
 
@@ -74,16 +82,21 @@ namespace _5_lab_No_Pattern
                 }
                 Console.Write("Введите название региона\n region_name: ");
                 string line = Console.ReadLine().Trim();
-                while (Regex.IsMatch(line, @"[0-9 ]") || !Regex.IsMatch(line, @"\G[А-Яа-я -]") || line.Length < 2)
+                int forUpdate = 0;
+                try
                 {
-                    Console.Write("Название города должно использовать только русские символы, без цифр и пробелов\nregion_name: ");
-                    line = Console.ReadLine();
+                    forUpdate = db.Database.ExecuteSqlRaw($"CALL update_region({id} , '{line}')");
                 }
-                int forUpdate = db.Database.ExecuteSqlRaw($"CALL update_region({id} , '{line}')");
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    RegionUpdate();
+                    return;
+                }
                 if (forUpdate != 0)
-                    Console.WriteLine("Обновление прошла успешно");
+                    Console.WriteLine("Обновление прошло успешно");
                 else
-                    Console.WriteLine("Обновление не прошла успешно");
+                    Console.WriteLine("Обновление не прошло успешно");
             }
             PrintMenu();
         }
@@ -111,7 +124,7 @@ namespace _5_lab_No_Pattern
             using (ApplicationContext db = new ApplicationContext())
             {
                 int kol = db.regions.Count();
-                Console.Write("Введите id объектоа через пробел\nid: ");
+                Console.Write("Введите id объекта через пробел\nid: ");
                 string id = Console.ReadLine().Trim();
                 while (!Regex.IsMatch(id, @"\G[0-9  ]"))
                 {

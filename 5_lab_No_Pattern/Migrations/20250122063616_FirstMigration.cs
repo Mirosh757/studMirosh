@@ -22,6 +22,7 @@ namespace _5_lab_No_Pattern.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_regions", x => x.id);
+                    table.UniqueConstraint("Unique_region_name", x => x.region_name);
                 });
         }
 

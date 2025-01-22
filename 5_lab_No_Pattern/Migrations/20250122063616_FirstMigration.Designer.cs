@@ -11,7 +11,7 @@ using _5_lab_No_Pattern;
 namespace _5_lab_No_Pattern.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250122024641_FirstMigration")]
+    [Migration("20250122063616_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
