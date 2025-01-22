@@ -50,7 +50,8 @@ namespace _5_lab_No_Pattern
                     LANGUAGE plpgsql
                     AS $$
                     BEGIN
-                        IF LENGTH(TRIM(value1)) < 2 OR LENGTH(TRIM(value1)) > 50 THEN 
+                        value1 := TRIM(value1);
+                        IF LENGTH(value1) < 2 OR LENGTH(value1) > 50 THEN 
                             RAISE EXCEPTION 'Длина названия города не может быть меньше двух и больше 50';
                         END IF;
 	                    IF NOT value1 ~ '^[А-Яа-я -]+$' THEN
@@ -73,7 +74,8 @@ namespace _5_lab_No_Pattern
                     LANGUAGE plpgsql
                     AS $$
                     BEGIN
-                        IF LENGTH(TRIM(value2)) < 2 OR LENGTH(TRIM(value2)) > 50 THEN 
+                        value2 := TRIM(value2);
+                        IF LENGTH(value2) < 2 OR LENGTH(value2) > 50 THEN 
                             RAISE EXCEPTION 'Длина названия города не может быть меньше двух и больше 50';
                         END IF;
                         IF EXISTS (SELECT 1 FROM regions WHERE id <> value1) THEN 

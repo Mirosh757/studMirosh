@@ -15,7 +15,7 @@ namespace _5_lab_No_Pattern
             using (ApplicationContext db = new ApplicationContext())
             {
                 Console.Write("Введите название региона\nregion_name: ");
-                string line = Console.ReadLine().Trim();
+                string line = Console.ReadLine();
                 int forCreate = 0;
                 try
                 {
@@ -74,14 +74,14 @@ namespace _5_lab_No_Pattern
             using (ApplicationContext db = new ApplicationContext())
             {
                 Console.Write("Введите id объекта\nid: ");
-                string id = Console.ReadLine().Trim();
+                string id = Console.ReadLine();
                 while (!Regex.IsMatch(id, @"\G[0-9]"))
                 {
                     Console.Write("id может состоять только из цифр\nid: ");
-                    id = Console.ReadLine().Trim();
+                    id = Console.ReadLine();
                 }
                 Console.Write("Введите название региона\n region_name: ");
-                string line = Console.ReadLine().Trim();
+                string line = Console.ReadLine();
                 int forUpdate = 0;
                 try
                 {
@@ -104,6 +104,7 @@ namespace _5_lab_No_Pattern
         {
             using (ApplicationContext db = new ApplicationContext())
             {
+                int kol = db.regions.Count();
                 Console.Write("Введите id объекта\nid: ");
                 string id = Console.ReadLine().Trim();
                 while (!Regex.IsMatch(id, @"\G[0-9]"))
@@ -112,7 +113,7 @@ namespace _5_lab_No_Pattern
                     id = Console.ReadLine().Trim();
                 }
                 int forDelete = db.Database.ExecuteSqlRaw($"CALL delete_region({id})");
-                if (forDelete != 0)
+                if (forDelete != 0 && (kol - db.regions.Count()) != 0)
                     Console.WriteLine("удаление прошло успешно");
                 else
                     Console.WriteLine("удаление не прошло успешно");
