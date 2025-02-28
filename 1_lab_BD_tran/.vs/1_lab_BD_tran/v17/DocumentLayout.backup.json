@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\migrations\\applicationcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:migrations\\applicationcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\migrations\\20250221033437_first-migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:migrations\\20250221033437_first-migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_lab_bd_tran\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:06:05.67Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Migrations\\ApplicationContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\ApplicationContextModelSnapshot.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Migrations\\ApplicationContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\ApplicationContextModelSnapshot.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T05:32:03.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Accounts.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Accounts.cs",
+              "RelativeDocumentMoniker": "Accounts.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Accounts.cs",
+              "RelativeToolTip": "Accounts.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwE8AAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:41:16.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Facade.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Facade.cs",
+              "RelativeDocumentMoniker": "Facade.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Facade.cs",
+              "RelativeToolTip": "Facade.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwDsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T03:36:08.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20250221033437_First-Migration.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Migrations\\20250221033437_First-Migration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250221033437_First-Migration.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Migrations\\20250221033437_First-Migration.cs",
+              "RelativeToolTip": "Migrations\\20250221033437_First-Migration.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAiwCEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T03:34:37.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationContext.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\ApplicationContext.cs",
+              "RelativeDocumentMoniker": "ApplicationContext.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\ApplicationContext.cs",
+              "RelativeToolTip": "ApplicationContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T12:23:22.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Users.cs",
+              "RelativeDocumentMoniker": "Users.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_lab_BD_tran\\Users.cs",
+              "RelativeToolTip": "Users.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwBoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:13:42.037Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
