@@ -18,7 +18,7 @@ namespace _1_lab_BD_tran
         {
             set
             {
-                if (value.Trim().Length < 2 || value.Trim().Length > 50)
+                if (value.Length < 2 || value.Length > 50)
                     Console.WriteLine("Фамилия должно иметь от 2 до 50 симвоолв");
                 else
                 {
@@ -29,7 +29,7 @@ namespace _1_lab_BD_tran
                         if (Regex.IsMatch(value, @"\P{IsCyrillic}"))
                             Console.WriteLine("Фамилия не может содержать символы латинского алфавита");
                         else
-                            _family = value.Trim().ToUpper()[0] + value.Trim().ToLower().Substring(1);
+                            _family = value.ToUpper()[0] + value.ToLower().Substring(1);
                     }
                 }
 
@@ -41,7 +41,7 @@ namespace _1_lab_BD_tran
         {
             set
             {
-                if (value.Trim().Length < 2 || value.Trim().Length > 30)
+                if (value.Length < 2 || value.Length > 30)
                     Console.WriteLine("Имя должно иметь от 2 до 30 симвоолв");
                 else
                 {
@@ -52,7 +52,7 @@ namespace _1_lab_BD_tran
                         if (Regex.IsMatch(value, @"\P{IsCyrillic}"))
                             Console.WriteLine("Имя не может содержать символы латинского алфавита");
                         else
-                            _name = value.Trim().ToUpper()[0] + value.Trim().ToLower().Substring(1);
+                            _name = value.ToUpper()[0] + value.ToLower().Substring(1);
                     }
                 }
 
@@ -66,7 +66,7 @@ namespace _1_lab_BD_tran
             {
                 if (value != "_")
                 {
-                    if (value.Trim().Length < 4 || value.Trim().Length > 50)
+                    if (value.Length < 4 || value.Length > 50)
                         Console.WriteLine("Отчество должно иметь от 4 до 50 симвоолв");
                     else
                     {
@@ -77,7 +77,7 @@ namespace _1_lab_BD_tran
                             if (Regex.IsMatch(value, @"\P{IsCyrillic}"))
                                 Console.WriteLine("Отчество не может содержать символы латинского алфавита");
                             else
-                                _patronymic = value.Trim().ToUpper()[0] + value.Trim().ToLower().Substring(1);
+                                _patronymic = value.ToUpper()[0] + value.ToLower().Substring(1);
                         }
                     }
                 }

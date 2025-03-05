@@ -55,20 +55,13 @@ namespace _1_lab_BD_tran.Migrations
                 unique: true);
             migrationBuilder.Sql(@"
                 START TRANSACTION;
-                CREATE OR REPLACE PROCEDURE add_user(login_value VARCHAR(50), password_value VARCHAR(50))
+                CREATE OR REPLACE PROCEDURE add_user(login_value VARCHAR(50), password_value VARCHAR(50), family_value VARCHAR(50), name_value VARCHAR(50), patronymic_value VARCHAR(50), birth_date_value DATE)
                 LANGUAGE sql
                 AS $$
-		                INSERT INTO users(login, password, registration_date) VALUES (login_value, password_value, current_timestamp);
+                        INSERT INTO users(login, password, registration_date) VALUES (login_value, password_value, current_timestamp);
+                        INSERT INTO accounts(user_id, family, name, patronymic, birth_date) VALUES ((SELECT id FROM users WHERE users.login = login_value), family_value, name_value, patronymic_value, birth_date_value);
                 $$;
-                COMMIT;
-
-                START TRANSACTION;
-                CREATE OR REPLACE PROCEDURE add_account(user_id_value INT, family_value VARCHAR(50), name_value VARCHAR(50), patronymic_value VARCHAR(50), birth_date_value DATE)
-                LANGUAGE sql
-                AS $$
-		                INSERT INTO accounts(user_id, family, name, patronymic, birth_date) VALUES (user_id_value, family_value, name_value, patronymic_value, birth_date_value);
-                $$;
-                COMMIT;                   
+                COMMIT;         
             ");
         }
 
