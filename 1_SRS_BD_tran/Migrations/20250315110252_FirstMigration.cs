@@ -80,43 +80,28 @@ namespace _1_lab_BD_tran.Migrations
 
 
 
-                CREATE OR REPLACE FUNCTION public.checktag(
-	            title_value TEXT)
-                RETURNS integer
-                LANGUAGE 'plpgsql'
-                COST 100
-                VOLATILE PARALLEL UNSAFE
-                AS $BODY$
-                 << outerblock >>
-                 DECLARE 
-                 --checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM tags WHERE tags.title = title_value) THEN 1 ELSE 0 END AS BIT));
-                 test_val integer := 0;
-                 BEGIN
-	                IF ((SELECT COUNT(*) FROM tags WHERE tags.title = title_value) = 0) THEN
-		                INSERT INTO tags(title) VALUES (title_value);
-	                END IF;
-	                test_val := (SELECT id FROM tags WHERE tags.title = title_value LIMIT 1);
-                 RETURN test_val;
-                 END;
-                $BODY$;
-                ALTER FUNCTION public.checktag(character varying)
-                    OWNER TO postgres;
+                 CREATE OR REPLACE FUNCTION public.checktag(title_value TEXT) RETURNS integer AS $$
+                  << outerblock >>
+                  DECLARE 
+                  --checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM tags WHERE tags.title = title_value) THEN 1 ELSE 0 END AS BIT));
+                  test_val integer := 0;
+                  BEGIN
+                     IF ((SELECT COUNT(*) FROM tags WHERE tags.title = title_value) = 0) THEN
+                         INSERT INTO tags(title) VALUES (title_value);
+                     END IF;
+                     test_val := (SELECT id FROM tags WHERE tags.title = title_value LIMIT 1);
+                  RETURN test_val;
+                  END;
+                 $$ LANGUAGE plpgsql;
 
 
 
 
-                CREATE OR REPLACE FUNCTION public.addtagforuser(
-	            id_value integer,
-	            title_value TEXT)
-                RETURNS text
-                LANGUAGE 'plpgsql'
-                COST 100
-                VOLATILE PARALLEL UNSAFE
-                AS $BODY$
+                CREATE OR REPLACE FUNCTION public.addtagforuser(id_value integer, title_value TEXT) RETURNS text AS $$
                              << outerblock >>
                              DECLARE 
 				             checktag_value INT = checktag(title_value);
-                             checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE checktag_value = ANY(accounts.tags)) THEN 1 ELSE 0 END AS BIT));
+                             checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE checktag_value = ANY(accounts.tags) AND accounts.user_id = id_value) THEN 1 ELSE 0 END AS BIT));
                              test_return TEXT := '';
                              BEGIN
                                 IF (checkhelp = false) THEN
@@ -127,10 +112,7 @@ namespace _1_lab_BD_tran.Migrations
                                 END IF;
                              RETURN test_return;
                              END;
-            $BODY$;
-
-            ALTER FUNCTION public.addtagforuser(integer, character varying)
-                OWNER TO postgres;
+            $$ LANGUAGE plpgsql;
 
 
 
@@ -138,7 +120,7 @@ namespace _1_lab_BD_tran.Migrations
                 CREATE OR REPLACE FUNCTION deletetagwithuser(id_account_value INT, id_tag_value INT) RETURNS TEXT AS $$
                  << outerblock >>
                  DECLARE 
-                 checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE id_tag_value = ANY(accounts.tags)) THEN 1 ELSE 0 END AS BIT));
+                 checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE id_tag_value = ANY(accounts.tags) AND accounts.user_id = id_value) THEN 1 ELSE 0 END AS BIT));
                  test_return TEXT := '';
                  BEGIN
                     IF (checkhelp = TRUE) THEN
@@ -153,30 +135,25 @@ namespace _1_lab_BD_tran.Migrations
 
 
 
-                CREATE OR REPLACE FUNCTION public.deletetag(id_value INT) RETURNS text
-                    LANGUAGE 'plpgsql'
-                    COST 100
-                    VOLATILE PARALLEL UNSAFE
-                AS $BODY$
+                CREATE OR REPLACE FUNCTION public.deletetag(id_value INT) RETURNS text AS $$
                  << outerblock >>
                  DECLARE 
-                 checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE id_value = ANY(accounts.tags)) THEN 1 ELSE 0 END AS BIT));
+                 --checkhelp bool := (SELECT CAST( CASE WHEN EXISTS (SELECT 1 FROM accounts WHERE id_value = ANY(accounts.tags)) THEN 1 ELSE 0 END AS BIT));
                  test_return TEXT := '';
                  BEGIN
-                    IF (checkhelp = TRUE) THEN
-		                DELETE FROM tags WHERE id = id_value;
-                        UPDATE accounts SET tags = ARRAY_REMOVE(tags, id_value) WHERE id_value = ANY(accounts.tags);
-                        test_return := 'Удаление тэга прошло успешно';
-                    ELSE
-                        test_return := 'Данный тэг не существует';
+ 	                IF ((SELECT COUNT(*) FROM tags WHERE id_value = tags.id) = 0) THEN
+		                test_return := 'Данный тег не существует';
+                    ELSE 
+		                IF ((SELECT COUNT(*) FROM accounts WHERE id_value = ANY(accounts.tags)) = 0) THEN
+        	                DELETE FROM tags WHERE id = id_value;
+        	                test_return := 'Удаление тега прошло успешно';
+    	                ELSE
+        	                test_return := 'Данный тег используется, его нельзя удалять, для начала удалите пользователя, на которого ссылается тег';
+		                END IF;
                     END IF;
                  RETURN test_return;
                  END;
- 
-                $BODY$;
-
-                ALTER FUNCTION public.deletetag(integer)
-                    OWNER TO postgres;
+                $$ LANGUAGE plpgsql;
 
             ");
         }

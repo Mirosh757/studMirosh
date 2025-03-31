@@ -34,20 +34,20 @@ namespace _1_lab_BD_tran
         {
             set
             {
-                if (value.Length < 2 || value.Length > 20)
-                    Console.WriteLine("Название тэга должно иметь от 2 до 20 симвоолв");
-                else
+                using (ApplicationContext db = new ApplicationContext())
                 {
-                    if (Regex.IsMatch(value, @"\P{IsCyrillic}") && !Regex.IsMatch(value, @"\d"))
-                        Console.WriteLine("Название тэга не может содержать символы латинского алфавита");
-                    else
+                    List<tags> tPrint = db.tags.OrderBy(t => t.id).ToList();
+                    for (int i = 0; i < tPrint.Count; i++)
                     {
-                        if (value.Any(p => !char.IsLetterOrDigit(p)))
-                            Console.WriteLine("Название тэга не должен содержать спец символы");
-                        else
+                        if (value == i.ToString())
                         {
-                            _title = value;
+                            _title = tPrint[i].title;
+                            break;
                         }
+                    }
+                    if (_title == "")
+                    {
+                        Console.WriteLine("Номер названия тега лежит от 0 до 4");
                     }
                 }
             }

@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\migrations\\20250315110252_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:migrations\\20250315110252_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\migrations\\20250315110252_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:migrations\\20250315110252_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|solutionrelative:applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D0ADA2E-6AF5-42FC-BF9B-018860649B57}|1_lab_BD_tran.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\1_srs_bd_tran\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,80 +38,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T11:06:05.67Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "20250315110252_FirstMigration.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
               "RelativeDocumentMoniker": "Migrations\\20250315110252_FirstMigration.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
               "RelativeToolTip": "Migrations\\20250315110252_FirstMigration.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAiwGQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAiwI8AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T01:51:26.098Z"
+              "WhenOpened": "2025-03-24T01:51:26.098Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Tags.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Tags.cs",
               "RelativeDocumentMoniker": "Tags.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Tags.cs*",
-              "RelativeToolTip": "Tags.cs*",
-              "ViewState": "AgIAACYAAAAAAAAAAAD4vzAAAAArAAAAAAAAAA==",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Tags.cs",
+              "RelativeToolTip": "Tags.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T10:09:35.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Accounts.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Accounts.cs",
               "RelativeDocumentMoniker": "Accounts.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Accounts.cs",
               "RelativeToolTip": "Accounts.cs",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAowM4AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAAAkwM4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T11:41:16.522Z"
+              "WhenOpened": "2025-02-20T11:41:16.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Facade.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Facade.cs",
               "RelativeDocumentMoniker": "Facade.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Facade.cs",
-              "RelativeToolTip": "Facade.cs",
-              "ViewState": "AgIAABABAAAAAAAAAAAUwPcAAAAMAAAAAAAAAA==",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Facade.cs*",
+              "RelativeToolTip": "Facade.cs*",
+              "ViewState": "AgIAACMBAAAAAAAAAAA0wOEAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T03:36:08.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ApplicationContext.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\ApplicationContext.cs",
               "RelativeDocumentMoniker": "ApplicationContext.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\ApplicationContext.cs",
               "RelativeToolTip": "ApplicationContext.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBQAAAB6AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBQAAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T12:23:22.426Z"
             },
