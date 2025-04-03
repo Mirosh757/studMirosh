@@ -148,7 +148,7 @@ namespace _1_lab_BD_tran.Migrations
         	                DELETE FROM tags WHERE id = id_value;
         	                test_return := 'Удаление тега прошло успешно';
     	                ELSE
-        	                test_return := 'Данный тег используется, его нельзя удалять, для начала удалите пользователя, на которого ссылается тег';
+        	                test_return := 'Данный тег используется, его нельзя удалять, в этом случае удалите тег у пользователя';
 		                END IF;
                     END IF;
                  RETURN test_return;

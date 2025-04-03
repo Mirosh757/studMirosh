@@ -47,7 +47,7 @@ namespace _1_lab_BD_tran
                     }
                     if (_title == "")
                     {
-                        Console.WriteLine("Номер названия тега лежит от 0 до 4");
+                        Console.WriteLine($"Номер названия тега лежит от 0 до {tPrint.Count}");
                     }
                 }
             }

@@ -151,23 +151,17 @@ namespace _1_lab_BD_tran
                         name = " " + CorrFormat(accounts[i].name, 20) + " ";
                         family = " " + CorrFormat(accounts[i].family, 20) + " ";
                         int[] index = accounts[i].tags.ToArray();
-                        int countTags = 0, countTagsWithAccount = 0;
                         for (int j = 0; j < index.Length; j++) // 66 символов для тега
                         {
                             if (index[j] != -1)
                             {
-                                if (titleTag.Length < 46)
+                                if (titleTag.Length < 66)
                                 {
                                     tag = db.tags.Where(t => t.id == index[j]).First();
-                                    titleTag += " " + countTagsWithAccount + ")" + tag.title;
-                                    countTagsWithAccount++;
+                                    titleTag += " " + "'" + tag.title + "'";
                                 }
-                                else 
-                                    countTags++;
                             }
                         }
-                        if(countTags != 0)
-                            titleTag += "  [" + countTags + "]";
                         Console.WriteLine($"{id}|{login}|{name}|{family}|{titleTag}");
                         titleTag = "";
                     }
@@ -223,23 +217,24 @@ namespace _1_lab_BD_tran
                                 name = " " + CorrFormat(accounts[i].name, 20) + " ";
                                 family = " " + CorrFormat(accounts[i].family, 20) + " ";
                                 int[] index = accounts[i].tags.ToArray();
-                                int countTags = 0, countTagsWithAccount = 0;
+                                string twoTag = CorrFormat("\n", 71) + "|";
                                 for (int j = 0; j < index.Length; j++) // 66 символов для тега
                                 {
                                     if (index[j] != -1)
                                     {
-                                        if (titleTag.Length < 46)
+                                        tag = db.tags.Where(t => t.id == index[j]).First();
+                                        if (titleTag.Length < 66)
                                         {
-                                            tag = db.tags.Where(t => t.id == index[j]).First();
-                                            titleTag += " " + countTagsWithAccount + ")" + tag.title;
-                                            countTagsWithAccount++;
+                                            titleTag += " " + "'" + tag.title + "'";
                                         }
                                         else
-                                            countTags++;
+                                        {
+                                            twoTag += " '" + tag.title + "' ";
+                                        }
                                     }
                                 }
-                                if (countTags != 0)
-                                    titleTag += "  [" + countTags + "]";
+                                if (twoTag[twoTag.Length - 1] == ' ')
+                                    titleTag += twoTag;
                                 Console.WriteLine($"{id}|{login}|{name}|{family}|{titleTag}");
                                 titleTag = "";
                             }
@@ -284,11 +279,6 @@ namespace _1_lab_BD_tran
             conn.Close();
             return result;
         }
-        /*
-        Console.ForegroundColor = ConsoleColor.Green; // устанавливаем цвет
-        Console.WriteLine("...");
-        Console.ResetColor();
-        */
         private void InsertTagsInAccount()
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -316,27 +306,35 @@ namespace _1_lab_BD_tran
                     if (user.id != 0)
                         flag = false;
                 }
-                List<tags> tPrint = db.tags.OrderBy(x => x.id).ToList();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Отделы компании: ");
-                for(int i = 0;i < tPrint.Count;i++)
-                    Console.WriteLine($"{CorrFormat(i.ToString(), 3)}   {CorrFormat(tPrint[i].title, 35)}");
-                Console.ResetColor();
-                //Console.WriteLine("Отделы компании:\n0.отдел кадров,\n1.отдел закупок,\n2.маркетинговый отдел,\n3.юридический отдел,\n4.плановый отдел,\n5.отдел сбыта");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Укажите номер названия тега для указанного пользователя\nDepartment: ");
-                Console.ResetColor();
-                tags tag = new tags();
-                tag.title = Console.ReadLine().Trim();
-                while(tag.title == "")
+                List<tags> tPrint = db.tags.FromSqlRaw($"SELECT id, title FROM tags, accounts WHERE id <> ALL(accounts.tags) AND accounts.user_id = {user.id}").ToList();
+                if (tPrint.Count > 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Отделы компании: ");
+                    for (int i = 0; i < tPrint.Count; i++)
+                        Console.WriteLine($"{CorrFormat(i.ToString(), 3)}   {CorrFormat(tPrint[i].title, 35)}");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Укажите номер названия тега для указанного пользователя\nDepartment: ");
+                    Console.ResetColor();
+                    tags tag = new tags();
+                    id = Console.ReadLine().Trim();
+                    tag.title = id;
+                    while (tag.title == "" || (Regex.IsMatch(id, @"\d") && Int32.Parse(id) >= tPrint.Count))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Указан не верный номер тега\nDepartment: ");
+                        Console.ResetColor();
+                        id = Console.ReadLine().Trim();
+                        tag.title = id;
+                    }
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(GetQueryResult($"SELECT addtagforuser({user.id}, '{tag.title}')"));
+                }
+                else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Указано не верное значение для тега\nDepartment: ");
-                    Console.ResetColor();
-                    tag.title = Console.ReadLine().Trim();
+                    Console.WriteLine("У пользователя уже вставленно максимум тегов");
                 }
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(GetQueryResult($"SELECT addtagforuser({user.id}, '{tag.title}')"));
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 PrintUsersTags();
 
@@ -445,7 +443,7 @@ namespace _1_lab_BD_tran
                         Console.ResetColor();
                         id = Console.ReadLine().Trim();
                     }
-                    if ((printTags.Count - 1) > Int32.Parse(id))
+                    if ((printTags.Count - 1) >= Int32.Parse(id))
                     {
                         checkId = printTags[Int32.Parse(id)];
                         if (checkId.id != 0)
@@ -454,7 +452,7 @@ namespace _1_lab_BD_tran
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("У пользователя нету тега с указанным id");
+                        Console.WriteLine("Тега с указанным id не существует");
                     }
                 }
                 Console.ForegroundColor = ConsoleColor.Green;

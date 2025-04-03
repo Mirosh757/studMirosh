@@ -57,7 +57,6 @@ namespace _1_lab_BD_tran
                         }
                     }
                 }
-
             }
             get { return _family; }
         }

@@ -48,23 +48,10 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABZAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwCUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T11:06:05.67Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "20250315110252_FirstMigration.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250315110252_FirstMigration.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
-              "RelativeToolTip": "Migrations\\20250315110252_FirstMigration.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAiwI8AAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T01:51:26.098Z",
               "EditorCaption": ""
             },
             {
@@ -75,10 +62,22 @@
               "RelativeDocumentMoniker": "Tags.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Tags.cs",
               "RelativeToolTip": "Tags.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAApwC0AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T10:09:35.082Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20250315110252_FirstMigration.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250315110252_FirstMigration.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Migrations\\20250315110252_FirstMigration.cs",
+              "RelativeToolTip": "Migrations\\20250315110252_FirstMigration.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAwwJQAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T01:51:26.098Z"
             },
             {
               "$type": "Document",
@@ -88,7 +87,7 @@
               "RelativeDocumentMoniker": "Accounts.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Accounts.cs",
               "RelativeToolTip": "Accounts.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAAAkwM4AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T11:41:16.522Z",
               "EditorCaption": ""
@@ -101,7 +100,7 @@
               "RelativeDocumentMoniker": "Facade.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Facade.cs",
               "RelativeToolTip": "Facade.cs",
-              "ViewState": "AgIAACMBAAAAAAAAAAA0wDQBAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADMBAAAAAAAAAAAAAEMBAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T03:36:08.425Z",
               "EditorCaption": ""
@@ -114,7 +113,7 @@
               "RelativeDocumentMoniker": "ApplicationContext.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\ApplicationContext.cs",
               "RelativeToolTip": "ApplicationContext.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBQAAAB5AAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswBEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T12:23:22.426Z"
             },
@@ -126,7 +125,7 @@
               "RelativeDocumentMoniker": "Users.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\1_SRS_BD_tran\\Users.cs",
               "RelativeToolTip": "Users.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAApwEYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T11:13:42.037Z"
             }
