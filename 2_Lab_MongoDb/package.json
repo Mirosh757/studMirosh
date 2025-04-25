@@ -1,0 +1,13 @@
+{
+  "name": "2_lab_mongodb",
+  "version": "1.0.0",
+  "description": "2_lab",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node migrations/create_collections.js && node migrations/seeders.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mongoose": "^8.13.2"
+  }
+}
