@@ -15,7 +15,6 @@ const doctor_specialitySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'department'
     }
-    
 });
 
 module.exports = mongoose.model('doctor_speciality', doctor_specialitySchema);

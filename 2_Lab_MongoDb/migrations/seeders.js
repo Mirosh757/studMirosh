@@ -95,18 +95,18 @@ async function seed() {
         {phone_number: "83012437043", general_page_id: general_page[4]._id},
         {phone_number: "83012437004", general_page_id: general_page[5]._id},
         {phone_number: "83012373042", general_page_id: general_page[6]._id},
-        {phone_number: "83012556256", general_page_id: general_page[7]._id},
+        {phone_number: "83017773042", general_page_id: general_page[7]._id},
         {phone_number: "83012233520", general_page_id: general_page[8]._id},
         {phone_number: "83012437044", general_page_id: general_page[9]._id},
         {phone_number: "83012232027", general_page_id: general_page[10]._id},
         {phone_number: "83012451898", general_page_id: general_page[11]._id},
-        {phone_number: "83012437005", general_page_id: general_page[12]._id},
+        {phone_number: "83012311112", general_page_id: general_page[12]._id},
         {phone_number: "83012412543", general_page_id: general_page[13]._id},
         {phone_number: "83012437875", general_page_id: general_page[14]._id},
-        {phone_number: "83012232026", general_page_id: general_page[15]._id},
-        {phone_number: "83012451897", general_page_id: general_page[16]._id},
-        {phone_number: "83012437000", general_page_id: general_page[17]._id},
-        {phone_number: "83012412544", general_page_id: general_page[18]._id},
+        {phone_number: "83012333042", general_page_id: general_page[15]._id},
+        {phone_number: "83012222042", general_page_id: general_page[16]._id},
+        {phone_number: "83012888042", general_page_id: general_page[17]._id},
+        {phone_number: "83012226042", general_page_id: general_page[18]._id},
         {phone_number: "83012437872", general_page_id: general_page[19]._id},
     ]);
 
@@ -118,32 +118,29 @@ async function seed() {
         {address: "ул. Павлова, 2а, Улан-Удэ, Респ. Бурятия, 670031", general_page_id:general_page[4]._id},
         {address: "670004, Республика Бурятия, город Улан-Удэ, п. Стеклозавод, улица Воронежская 1а", general_page_id:general_page[5]._id},
         {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.155", general_page_id:general_page[6]._id},
-        {address: "г. Москва  ул.Велозаводская, д 1 / 1", general_page_id:general_page[7]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.1", general_page_id:general_page[7]._id},
         {address: "ул. Вавилова, 61 строение 11, Москва, 117292", general_page_id:general_page[8]._id},
         {address: "Литейный пр., 56, Санкт-Петербург, 191014", general_page_id:general_page[9]._id},
         {address: "пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110", general_page_id:general_page[10]._id},
         {address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[11]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[12]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[13]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[14]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15", general_page_id:general_page[12]._id},
+        {address: "пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[13]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2", general_page_id:general_page[14]._id},
         {address: "Улан-Удэ, Респ. Бурятия, 670031", general_page_id:general_page[15]._id},
-        {address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[16]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[17]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[18]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[19]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3", general_page_id:general_page[16]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155", general_page_id:general_page[17]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5", general_page_id:general_page[18]._id},
+        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16", general_page_id:general_page[19]._id},
     ]);
 
     const hospital = await Hospital.insertMany([
-        {id: general_page[0]._id , region_id: region[0]._id},
-        {id: general_page[1]._id , region_id: region[0]._id},
-        {id: general_page[2]._id , region_id: region[0]._id},
-        {id: general_page[3]._id , region_id: region[1]._id},
-        {id: general_page[4]._id , region_id: region[2]._id},
-        {id: general_page[5]._id , region_id: region[3]._id},
-        {id: general_page[6]._id , region_id: region[4]._id},
-        {id: general_page[7]._id , region_id: region[5]._id},
-        {id: general_page[8]._id , region_id: region[5]._id},
-        {id: general_page[9]._id , region_id: region[6]._id},
+        {id: [general_page[0]._id, general_page[1]._id, general_page[2]._id] , region_id: region[0]._id},
+        {id: [general_page[3]._id] , region_id: region[1]._id},
+        {id: [general_page[4]._id] , region_id: region[2]._id},
+        {id: [general_page[5]._id] , region_id: region[3]._id},
+        {id: [general_page[6]._id] , region_id: region[4]._id},
+        {id: [general_page[7]._id, general_page[8]._id] , region_id: region[5]._id},
+        {id: [general_page[9]._id] , region_id: region[6]._id},
     ]);
 
     await Requisites.insertMany([
@@ -154,7 +151,7 @@ async function seed() {
             ogrn: "1122315577445", 
             inn: "463248513644", 
             kpp: "642478976", 
-            hospital_id: hospital[0]._id
+            hospital_id: hospital[0].id[0]
         },
         {
             registration_date: "1987-11-19", 
@@ -163,7 +160,7 @@ async function seed() {
             ogrn: "1122315571445", 
             inn: "465136443248", 
             kpp: "478976642", 
-            hospital_id: hospital[1]._id
+            hospital_id: hospital[0].id[1]
         },
         {
             registration_date: "1955-02-01", 
@@ -172,7 +169,7 @@ async function seed() {
             ogrn: "1155771223445", 
             inn: "485134632644", 
             kpp: "478642976", 
-            hospital_id: hospital[2]._id
+            hospital_id: hospital[0].id[2]
         },
         {
             registration_date: "2000-02-29", 
@@ -181,7 +178,7 @@ async function seed() {
             ogrn: "1122315577415", 
             inn: "463248513641", 
             kpp: "786424976", 
-            hospital_id: hospital[3]._id
+            hospital_id: hospital[1].id[3]
         },
         {
             registration_date: "1879-02-11", 
@@ -190,7 +187,7 @@ async function seed() {
             ogrn: "2112377441555", 
             inn: "851463243644", 
             kpp: "649762478", 
-            hospital_id: hospital[4]._id
+            hospital_id: hospital[2].id[4]
         },
         {
             registration_date: "1965-12-30", 
@@ -199,7 +196,7 @@ async function seed() {
             ogrn: "1122531557744", 
             inn: "465133248644", 
             kpp: "789766424", 
-            hospital_id: hospital[5]._id
+            hospital_id: hospital[3].id[5]
         },
         {
             registration_date: "1977-09-12", 
@@ -208,7 +205,7 @@ async function seed() {
             ogrn: "1155774451223", 
             inn: "463213644854", 
             kpp: "642894776", 
-            hospital_id: hospital[6]._id
+            hospital_id: hospital[4].id[6]
         },
         {
             registration_date: "1695-11-19", 
@@ -217,7 +214,7 @@ async function seed() {
             ogrn: "1182315577445", 
             inn: "463245136448", 
             kpp: "642976478", 
-            hospital_id: hospital[7]._id
+            hospital_id: hospital[5].id[7]
         },
         {
             registration_date: "1888-06-17", 
@@ -226,7 +223,7 @@ async function seed() {
             ogrn: "5112744523157", 
             inn: "513644463248", 
             kpp: "678974246", 
-            hospital_id: hospital[8]._id
+            hospital_id: hospital[5].id[8]
         },
         {
             registration_date: "1811-10-16", 
@@ -235,34 +232,31 @@ async function seed() {
             ogrn: "1125577423145", 
             inn: "463213644485", 
             kpp: "648976247", 
-            hospital_id: hospital[9]._id
+            hospital_id: hospital[6].id[9]
         },
     ]);
 
     const department = await Department.insertMany([
-        {id: general_page[10]._id, hospital_id: hospital[0]._id},
-        {id: general_page[11]._id, hospital_id: hospital[0]._id},
-        {id: general_page[12]._id, hospital_id: hospital[0]._id},
-        {id: general_page[13]._id, hospital_id: hospital[2]._id},
-        {id: general_page[14]._id, hospital_id: hospital[2]._id},
-        {id: general_page[15]._id, hospital_id: hospital[3]._id},
-        {id: general_page[16]._id, hospital_id: hospital[4]._id},
-        {id: general_page[17]._id, hospital_id: hospital[4]._id},
-        {id: general_page[18]._id, hospital_id: hospital[5]._id},
-        {id: general_page[19]._id, hospital_id: hospital[6]._id},
+        {id: [general_page[10]._id, general_page[11]._id, general_page[12]._id], hospital_id: hospital[0].id[0]},
+        {id: [general_page[13]._id, general_page[14]._id], hospital_id: hospital[0].id[2]},
+        {id: [general_page[15]._id], hospital_id: hospital[1].id[0]},
+        {id: [general_page[16]._id, general_page[17]._id], hospital_id: hospital[2].id[0]},
+        {id: [general_page[18]._id], hospital_id: hospital[3].id[0]},
+        {id: [general_page[19]._id], hospital_id: hospital[3].id[1]},
     ]);
 
     await Doctor_speciality.insertMany([
+        
         {
-            date_start: "1967-03-12", 
-            date_end: "2013-11-22", 
+            date_start: "1955-12-17", 
+            date_end: "1966-01-27", 
             speciality_id: speciality[0]._id, 
-            doctor_id: doctor[0]._id, 
+            doctor_id: doctor[0]._id,
             department_id: department[0]._id
         },
         {
-            date_start: "1955-12-17", 
-            date_end: "2017-01-27", 
+            date_start: "1967-03-12", 
+            date_end: "2013-11-22", 
             speciality_id: speciality[0]._id, 
             doctor_id: doctor[0]._id, 
             department_id: department[0]._id
@@ -324,6 +318,82 @@ async function seed() {
             department_id: department[5]._id
         },
     ]);
+
+    /*
+    await Doctor_speciality.insertMany([
+        
+        {
+            date_start: "1955-12-17", 
+            date_end: "1966-01-27", 
+            speciality_id: speciality[0]._id, 
+            doctor_id: doctor[0]._id,
+            department_id: department[0]._id
+        },
+        {
+            date_start: "1967-03-12", 
+            date_end: "2013-11-22", 
+            speciality_id: speciality[0]._id, 
+            doctor_id: doctor[0]._id, 
+            department_id: department[0]._id
+        },
+        {
+            date_start: "1967-08-27", 
+            date_end: "2003-12-23", 
+            speciality_id: speciality[1]._id, 
+            doctor_id: doctor[1]._id, 
+            department_id: department[0]._id
+        },
+        {
+            date_start: "1971-01-10", 
+            date_end: "2021-11-11", 
+            speciality_id: speciality[2]._id, 
+            doctor_id: doctor[0]._id, 
+            department_id: department[1]._id
+        },
+        {
+            date_start: "1988-02-28", 
+            date_end: "2023-11-27", 
+            speciality_id: speciality[3]._id, 
+            doctor_id: doctor[2]._id, 
+            department_id: department[2]._id
+        },
+        {
+            date_start: "1934-07-17", 
+            date_end: "1998-11-30", 
+            speciality_id: speciality[4]._id, 
+            doctor_id: doctor[5]._id, 
+            department_id: department[3]._id
+        },
+        {
+            date_start: "1923-03-12", 
+            date_end: "1991-06-30", 
+            speciality_id: speciality[5]._id, 
+            doctor_id: doctor[4]._id, 
+            department_id: department[3]._id
+        },
+        {
+            date_start: "1955-12-22", 
+            date_end: "2017-10-22", 
+            speciality_id: speciality[6]._id, 
+            doctor_id: doctor[0]._id, 
+            department_id: department[4]._id
+        },
+        {
+            date_start: "1961-01-31", 
+            date_end: "2003-09-12", 
+            speciality_id: speciality[7]._id, 
+            doctor_id: doctor[3]._id, 
+            department_id: department[4]._id
+        },
+        {
+            date_start: "1969-08-22", 
+            date_end: "2015-05-15", 
+            speciality_id: speciality[8]._id, 
+            doctor_id: doctor[0]._id, 
+            department_id: department[5]._id
+        },
+    ]);
+    */
 
     console.log('База данных заполнена');
     mongoose.disconnect();

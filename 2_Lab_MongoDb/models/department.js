@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const departmentSchema = new mongoose.Schema({
-    id:{
+    id:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'general_page'
-    },
+    }],
     hospital_id:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hospital'
