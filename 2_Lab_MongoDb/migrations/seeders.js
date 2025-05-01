@@ -1,7 +1,5 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Address = require('../models/address');
-const Department = require('../models/department');
 const Doctor = require('../models/doctor');
 const Doctor_speciality = require('../models/doctor_speciality');
 const General_page = require('../models/general_page');
@@ -14,8 +12,6 @@ const Speciality = require('../models/speciality');
 async function seed() {
     await mongoose.connect(process.env.MONGODB_URL)
     
-    await Address.deleteMany();
-    await Department.deleteMany();
     await Doctor.deleteMany();
     await Doctor_speciality.deleteMany();
     await General_page.deleteMany();
@@ -65,26 +61,121 @@ async function seed() {
     ]);
 
     const general_page = await General_page.insertMany([
-        {title: "Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>", website: "http://www.rkbsemashko.ru/"},
-        {title: "Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>", website: "http://drkbrb.ru/"},
-        {title: "ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ", website: "http://bsmp03.ru/"},
-        {title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>", website: "https://xn--2-btbfp1ai/"},
-        {title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>", website: "http://gp3uu.ru/"},
-        {title: "Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>", website: "https://gkb13.ru/"},
-        {title: "УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>", website: "https://gkb64.ru/"},
-        {title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>", website: "https://mariin.ru/"},
-        {title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>", website: "https://www.spbsverdlovka.ru/"},
-        {title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>", website: "https://lucaclinic.ru/"},
-        {title: "Хирургическое", website: "http://www.rkbsemashko.ru/"},
-        {title: "Педиатрическое", website: "http://www.rkbsemashko.ru/"},
-        {title: "Терапевтическое", website: "http://www.rkbsemashko.ru/"},
-        {title: "Хирургическое", website: "http://drkbrb.ru/"},
-        {title: "Неврологическое", website: "http://drkbrb.ru/"},
-        {title: "Нефрологическое", website: "http://bsmp03.ru/"},
-        {title: "Гинекологическое", website: "https://lucaclinic.ru/"},
-        {title: "Психиотрическое", website: "https://lucaclinic.ru/"},
-        {title: "Терапевтическое", website: "https://www.spbsverdlovka.ru/"},
-        {title: "Кардиологическое", website: "http://bsmp03.ru/"},
+        {
+            title: "Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>", 
+            website: "http://www.rkbsemashko.ru/",
+            address: "корп. 2, ул. Пирогова, 3а, Улан-Удэ, Респ. Бурятия, 670047"
+        },
+        {
+            title: "Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>", 
+            website: "http://drkbrb.ru/",
+            address: "пр. Строителей, 2А, Улан-Удэ, Респ. Бурятия, 670042"
+        },
+        {
+            title: "ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ", 
+            website: "http://bsmp03.ru/",
+            address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042"
+        },
+        {
+            title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>", 
+            website: "https://xn--2-btbfp1ai/",
+            address: "ул. Павлова, 12, Улан-Удэ, Респ. Бурятия, 670031"
+        },
+        {
+            title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>", 
+            website: "http://gp3uu.ru/",
+            address: "ул. Павлова, 2а, Улан-Удэ, Респ. Бурятия, 670031"
+        },
+        {
+            title: "Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>", 
+            website: "https://gkb13.ru/",
+            address: "670004, Республика Бурятия, город Улан-Удэ, п. Стеклозавод, улица Воронежская 1а"
+        },
+        {
+            title: "УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>", 
+            website: "https://gkb64.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.155"
+        },
+        {
+            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>", 
+            website: "https://mariin.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.1"
+        },
+        {
+            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>", 
+            website: "https://www.spbsverdlovka.ru/",
+            address: "ул. Вавилова, 61 строение 11, Москва, 117292"
+        },
+        {
+            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>", 
+            website: "https://lucaclinic.ru/",
+            address: "Литейный пр., 56, Санкт-Петербург, 191014"
+        },
+        {
+            title: "Хирургическое", 
+            website: "http://www.rkbsemashko.ru/",
+            address: "пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110"
+        },
+        {
+            title: "Педиатрическое", 
+            website: "http://www.rkbsemashko.ru/",
+            address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042"
+        },
+        {
+            title: "Терапевтическое", 
+            website: "http://www.rkbsemashko.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15"
+        },
+        {
+            title: "Хирургическое", 
+            website: "http://drkbrb.ru/",
+            address: "пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042"
+        },
+        {
+            title: "Неврологическое", 
+            website: "http://drkbrb.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2"
+        },
+        {
+            title: "Нефрологическое", 
+            website: "http://bsmp03.ru/",
+            address: "Улан-Удэ, Респ. Бурятия, 670031"
+        },
+        {
+            title: "Гинекологическое", 
+            website: "https://lucaclinic.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3"
+        },
+        {
+            title: "Психиотрическое", 
+            website: "https://lucaclinic.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155"
+        },
+        {
+            title: "Терапевтическое", 
+            website: "https://www.spbsverdlovka.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5"
+        },
+        {
+            title: "Кардиологическое", 
+            website: "http://bsmp03.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16"
+        },
+        {
+            title: "Кардиологическое", 
+            website: "http://drkbrb.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3"
+        },
+        {
+            title: "Кардиологическое", 
+            website: "http://bsmp03.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16"
+        },
+        {
+            title: "Кардиологическое", 
+            website: "http://rkbsemashko.ru/",
+            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1"
+        },
     ]);
 
     await Phone_number.insertMany([
@@ -108,39 +199,85 @@ async function seed() {
         {phone_number: "83012888042", general_page_id: general_page[17]._id},
         {phone_number: "83012226042", general_page_id: general_page[18]._id},
         {phone_number: "83012437872", general_page_id: general_page[19]._id},
-    ]);
-
-    await Address.insertMany([
-        {address: "корп. 2, ул. Пирогова, 3а, Улан-Удэ, Респ. Бурятия, 670047", general_page_id:general_page[0]._id},
-        {address: "пр. Строителей, 2А, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[1]._id},
-        {address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[2]._id},
-        {address: "ул. Павлова, 12, Улан-Удэ, Респ. Бурятия, 670031", general_page_id:general_page[3]._id},
-        {address: "ул. Павлова, 2а, Улан-Удэ, Респ. Бурятия, 670031", general_page_id:general_page[4]._id},
-        {address: "670004, Республика Бурятия, город Улан-Удэ, п. Стеклозавод, улица Воронежская 1а", general_page_id:general_page[5]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.155", general_page_id:general_page[6]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.1", general_page_id:general_page[7]._id},
-        {address: "ул. Вавилова, 61 строение 11, Москва, 117292", general_page_id:general_page[8]._id},
-        {address: "Литейный пр., 56, Санкт-Петербург, 191014", general_page_id:general_page[9]._id},
-        {address: "пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110", general_page_id:general_page[10]._id},
-        {address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[11]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15", general_page_id:general_page[12]._id},
-        {address: "пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042", general_page_id:general_page[13]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2", general_page_id:general_page[14]._id},
-        {address: "Улан-Удэ, Респ. Бурятия, 670031", general_page_id:general_page[15]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3", general_page_id:general_page[16]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155", general_page_id:general_page[17]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5", general_page_id:general_page[18]._id},
-        {address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16", general_page_id:general_page[19]._id},
+        {phone_number: "83012880000", general_page_id: general_page[20]._id},
+        {phone_number: "83012234215", general_page_id: general_page[21]._id},
+        {phone_number: "83012437611", general_page_id: general_page[22]._id},
     ]);
 
     const hospital = await Hospital.insertMany([
-        {id: [general_page[0]._id, general_page[1]._id, general_page[2]._id] , region_id: region[0]._id},
-        {id: [general_page[3]._id] , region_id: region[1]._id},
-        {id: [general_page[4]._id] , region_id: region[2]._id},
-        {id: [general_page[5]._id] , region_id: region[3]._id},
-        {id: [general_page[6]._id] , region_id: region[4]._id},
-        {id: [general_page[7]._id, general_page[8]._id] , region_id: region[5]._id},
-        {id: [general_page[9]._id] , region_id: region[6]._id},
+        {
+            id: general_page[0]._id,
+            department_id:[
+                general_page[10]._id,
+            ],
+            region_id: region[0]._id
+        },
+        {
+            id: general_page[1]._id, 
+            department_id:[
+                general_page[11]._id,
+                general_page[20]._id,
+            ],
+            region_id: region[0]._id
+        },
+        {
+            id: general_page[2]._id, 
+            department_id:[
+                general_page[12]._id,
+            ],
+            region_id: region[0]._id
+        },
+        {
+            id: general_page[3]._id, 
+            department_id:[
+                general_page[13]._id,
+                general_page[21]._id,
+            ],
+            region_id: region[1]._id
+        },
+        {
+            id: general_page[4]._id, 
+            department_id:[
+                general_page[14]._id,
+            ],
+            region_id: region[2]._id
+        },
+        {
+            id: general_page[5]._id, 
+            department_id:[
+                general_page[15]._id,
+            ],
+            region_id: region[3]._id
+        },
+        {
+            id: general_page[6]._id, 
+            department_id:[
+                general_page[16]._id,
+                general_page[22]._id,
+            ],
+            region_id: region[4]._id
+        },
+        {
+            id: general_page[7]._id, 
+            department_id:[
+                general_page[17]._id,
+            ],
+            region_id: region[5]._id
+        },
+        {
+            id: general_page[8]._id, 
+            department_id:[
+                general_page[18]._id,
+            ],
+            region_id: region[5]._id
+        },
+        {
+            id: general_page[9]._id, 
+            department_id:[
+                general_page[19]._id,
+            ],
+            region_id: region[6]._id
+        }
     ]);
 
     await Requisites.insertMany([
@@ -236,86 +373,77 @@ async function seed() {
         },
     ]);
 
-    const department = await Department.insertMany([
-        {id: [general_page[10]._id, general_page[11]._id, general_page[12]._id], hospital_id: hospital[0].id[0]},
-        {id: [general_page[13]._id, general_page[14]._id], hospital_id: hospital[0].id[2]},
-        {id: [general_page[15]._id], hospital_id: hospital[1].id[0]},
-        {id: [general_page[16]._id, general_page[17]._id], hospital_id: hospital[2].id[0]},
-        {id: [general_page[18]._id], hospital_id: hospital[3].id[0]},
-        {id: [general_page[19]._id], hospital_id: hospital[3].id[1]},
-    ]);
-
     await Doctor_speciality.insertMany([
         
         {
             date_start: "1955-12-17", 
             date_end: "1966-01-27", 
-            speciality_id: speciality[0]._id, 
+            speciality_id: speciality[0]._id,
             doctor_id: doctor[0]._id,
-            department_id: department[0]._id
+            department_id: hospital[0].department_id[0]
         },
         {
             date_start: "1967-03-12", 
             date_end: "2013-11-22", 
             speciality_id: speciality[0]._id, 
             doctor_id: doctor[0]._id, 
-            department_id: department[0]._id
+            department_id: hospital[0].department_id[0]
         },
         {
             date_start: "1967-08-27", 
             date_end: "2003-12-23", 
             speciality_id: speciality[1]._id, 
             doctor_id: doctor[1]._id, 
-            department_id: department[0]._id
+            department_id: hospital[0].department_id[0]
         },
         {
             date_start: "1971-01-10", 
             date_end: "2021-11-11", 
             speciality_id: speciality[2]._id, 
             doctor_id: doctor[0]._id, 
-            department_id: department[1]._id
+            department_id: hospital[1].department_id[2]
         },
         {
             date_start: "1988-02-28", 
             date_end: "2023-11-27", 
             speciality_id: speciality[3]._id, 
             doctor_id: doctor[2]._id, 
-            department_id: department[2]._id
+            department_id: hospital[2].department_id[1]
         },
         {
             date_start: "1934-07-17", 
             date_end: "1998-11-30", 
             speciality_id: speciality[4]._id, 
             doctor_id: doctor[5]._id, 
-            department_id: department[3]._id
+            department_id: hospital[3].department_id[0]
         },
         {
             date_start: "1923-03-12", 
             date_end: "1991-06-30", 
             speciality_id: speciality[5]._id, 
             doctor_id: doctor[4]._id, 
-            department_id: department[3]._id
+            department_id: hospital[3].department_id[0]
         },
         {
             date_start: "1955-12-22", 
             date_end: "2017-10-22", 
             speciality_id: speciality[6]._id, 
             doctor_id: doctor[0]._id, 
-            department_id: department[4]._id
+            department_id: hospital[4].department_id[1]
         },
         {
             date_start: "1961-01-31", 
             date_end: "2003-09-12", 
             speciality_id: speciality[7]._id, 
             doctor_id: doctor[3]._id, 
-            department_id: department[4]._id
+            department_id: hospital[4].department_id[2]
         },
         {
             date_start: "1969-08-22", 
             date_end: "2015-05-15", 
             speciality_id: speciality[8]._id, 
             doctor_id: doctor[0]._id, 
-            department_id: department[5]._id
+            department_id: hospital[5].department_id[0]
         },
     ]);
 

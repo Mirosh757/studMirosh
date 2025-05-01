@@ -1,7 +1,5 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-require('../models/address');
-require('../models/department');
 require('../models/doctor');
 require('../models/doctor_speciality');
 require('../models/general_page');
