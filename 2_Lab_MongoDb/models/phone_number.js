@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const phone_numberSchema = new mongoose.Schema({
     phone_number: String,
-    general_page_id:{
+    description: String,
+    hospital_description_id:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'general_page'
+        ref: 'hospital_description'
     }
 });
 
