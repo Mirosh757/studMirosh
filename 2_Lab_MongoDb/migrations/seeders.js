@@ -2,780 +2,622 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Doctor = require('../models/doctor');
 const Doctor_speciality = require('../models/doctor_speciality');
-const Hospital_description = require('../models/hospital_description');
+const Medical_instituction = require('../models/medical_instituction');
 const Phone_number = require('../models/phone_number');
 const Region = require('../models/region');
-const Requisites = require('../models/requisites');
+//const Requisites = require('../models/requisites');
 const Speciality = require('../models/speciality');
-
+const { specialities, regions, doctors, medical_instituctions, phone_numbers } = require('../migrations/dataInput');
 async function seed() {
     await mongoose.connect(process.env.MONGODB_URL)
 
     await Doctor.deleteMany();
     await Doctor_speciality.deleteMany();
-    await Hospital_description.deleteMany();
+    await Medical_instituction.deleteMany();
     await Phone_number.deleteMany();
     await Region.deleteMany();
-    await Requisites.deleteMany();
     await Speciality.deleteMany();
 
-    const region = await Region.insertMany([
-        { region_name: "Улан-Удэ" },
-        { region_name: "Москва" },
-        { region_name: "Санкт-Петербург" },
-        { region_name: "Екатеринбург" },
-        { region_name: "Калининград" },
-        { region_name: "Курск" },
-        { region_name: "Казань" },
-        { region_name: "Омск" },
-        { region_name: "Томск" },
-        { region_name: "Новосибирск" },
-    ]);
+    
+    const regionsArray = Object.values(regions).map(region => ({
+        region_name: region.region_name,
+    }));
+    const insertedRegions = await Region.insertMany(regionsArray);
+    
+    const regionMap = new Map();
+    insertedRegions.forEach(region => {
+        regionMap.set(region.region_name, region._id);
+    });
 
-    const doctor = await Doctor.insertMany([
-        {
-            name: "Георгий",
-            family: "Кондратов",
-            patronymic: "Васильевич",
-            address: "ул. Революции 1905 года; 36; Улан-Удэ; Респ. Бурятия; 670034",
-            passport_details: "8123432544",
-            date_birth: "1954-10-27"
-        },
-        {
-            name: "Иван",
-            family: "Овчинников",
-            patronymic: "Афанасьевич",
-            address: "ул. Комсомольская; 1Б; Улан-Удэ; Респ. Бурятия; 670002",
-            passport_details: "8133431234",
-            date_birth: "1922-09-14"
-        },
-        {
-            name: "Эрдэн",
-            family: "Раднаев",
-            patronymic: "Раднаевич",
-            address: "ул. Октябрьская; 36а; Улан-Удэ; Респ. Бурятия; 670002",
-            passport_details: "7421532544",
-            date_birth: "1954-02-27"
-        },
-        {
-            name: "Валентин",
-            family: "Ильков",
-            patronymic: "Николаевич",
-            address: "ул. Цивилева; 2; Улан-Удэ; Респ. Бурятия; 670034",
-            passport_details: "8823432544",
-            date_birth: "1909-09-09"
-        },
-        {
-            name: "Дмитрий",
-            family: "Плишкин",
-            patronymic: "Николаевич",
-            address: "ул. Цивилева; д.41; Улан-Удэ; Респ. Бурятия; 670034",
-            passport_details: "8123432987",
-            date_birth: "1944-12-22"
-        },
-        {
-            name: "Александр",
-            family: "Алексеев",
-            patronymic: "Владимирович",
-            address: "ул. Модогоева; 1/1; Улан-Удэ; Респ. Бурятия; 670000",
-            passport_details: "8155532544",
-            date_birth: "1945-05-09"
-        },
-        {
-            name: "Иннокентий",
-            family: "Ботвин",
-            patronymic: "Иннокентьевич",
-            address: "ул. Ключевская; 45Б; Улан-Удэ; Респ. Бурятия; 670013",
-            passport_details: "8123432541",
-            date_birth: "1941-05-08"
-        },
-        {
-            name: "Петр",
-            family: "Васильев",
-            patronymic: "Васильевич",
-            address: "ул. Каландаришвили; 27; Улан-Удэ; Респ. Бурятия; 670000",
-            passport_details: "1126432544",
-            date_birth: "1921-12-21"
-        },
-        {
-            name: "Герман",
-            family: "Головач",
-            patronymic: "Артемьевич",
-            address: "ул. Юного Коммунара; 3; Улан-Удэ; Респ. Бурятия; 670000",
-            passport_details: "6447632544",
-            date_birth: "1912-08-18"
-        },
-        {
-            name: "Леонид",
-            family: "Гофланд",
-            patronymic: "Арвидович",
-            address: "ул. Хоца Намсараева; 2Б; Улан-Удэ; Респ. Бурятия; 670034",
-            passport_details: "8123432456",
-            date_birth: "1933-07-17"
-        },
-    ]);
+    const specialitiesArray = Object.values(specialities).map(spec => ({
+        title: spec.title,
+    }));
+    const insertedSpecialities = await Speciality.insertMany(specialitiesArray);
+    
+    const specialityMap = new Map();
+    insertedSpecialities.forEach(spec => {
+        specialityMap.set(spec.title, spec._id);
+    });
 
-    const speciality = await Speciality.insertMany([
-        { title: "хирург" },
-        { title: "терапевт" },
-        { title: "аллерголог" },
-        { title: "логопед" },
-        { title: "уролог" },
-        { title: "невролог" },
-        { title: "нефролог" },
-        { title: "кардиолог" },
-        { title: "педиатр" },
-        { title: "имунолог" },
-    ]);
+    const doctorsArray = Object.values(doctors).map(doctor => ({
+        name: doctor.name,
+            family: doctor.family,
+            patronymic: doctor.patronymic,
+            address: doctor.address,
+            passport_details: doctor.passport_details,
+            date_birth: doctor.date_birth,
+    }));
 
-    const hospital_description = await Hospital_description.insertMany([
-        {
-            _id: new mongoose.Types.ObjectId(0),
-            title: "Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>",
-            website: "http://www.rkbsemashko.ru/",
-            address: "корп. 2, ул. Пирогова, 3а, Улан-Удэ, Респ. Бурятия, 670047",
-            departments: [],
-            region_id: region[0]._id,
-            type: "hospital"
-        },
-        {
-            title: "Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>",
-            website: "http://drkbrb.ru/",
-            address: "пр. Строителей, 2А, Улан-Удэ, Респ. Бурятия, 670042",
-            departments: [],
-            region_id: region[0]._id,
-            type: "hospital"
-        },
-        {
-            title: "ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ",
-            website: "http://bsmp03.ru/",
-            address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042",
-            departments: [],
-            region_id: region[0]._id,
-            type: "hospital"
-        },
-        {
-            title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>",
-            website: "https://xn--2-btbfp1ai/",
-            address: "ул. Павлова, 12, Улан-Удэ, Респ. Бурятия, 670031",
-            departments: [],
-            region_id: region[1]._id,
-            type: "hospital"
-        },
-        {
-            title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>",
-            website: "http://gp3uu.ru/",
-            address: "ул. Павлова, 2а, Улан-Удэ, Респ. Бурятия, 670031",
-            departments: [],
-            region_id: region[1]._id,
-            type: "hospital"
-        },
-        {
-            title: "Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>",
-            website: "https://gkb13.ru/",
-            address: "670004, Республика Бурятия, город Улан-Удэ, п. Стеклозавод, улица Воронежская 1а",
-            departments: [],
-            region_id: region[2]._id,
-            type: "hospital"
-        },
-        {
-            title: "УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>",
-            website: "https://gkb64.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.155",
-            departments: [],
-            region_id: region[3]._id,
-            type: "hospital"
-        },
-        {
-            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>",
-            website: "https://mariin.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.1",
-            departments: [],
-            region_id: region[4]._id,
-            type: "hospital"
-        },
-        {
-            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>",
-            website: "https://www.spbsverdlovka.ru/",
-            address: "ул. Вавилова, 61 строение 11, Москва, 117292",
-            departments: [],
-            region_id: region[4]._id,
-            type: "hospital"
-        },
-        {
-            title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>",
-            website: "https://lucaclinic.ru/",
-            address: "Литейный пр., 56, Санкт-Петербург, 191014",
-            departments: [],
-            region_id: region[4]._id,
-            type: "hospital"
-        },
-        {
-            title: "Хирургическое",
-            website: "http://www.rkbsemashko.ru/",
-            address: "пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Педиатрическое",
-            website: "http://www.rkbsemashko.ru/",
-            address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Терапевтическое",
-            website: "http://www.rkbsemashko.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Хирургическое",
-            website: "http://drkbrb.ru/",
-            address: "пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Неврологическое",
-            website: "http://drkbrb.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Нефрологическое",
-            website: "http://bsmp03.ru/",
-            address: "Улан-Удэ, Респ. Бурятия, 670031",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Гинекологическое",
-            website: "https://lucaclinic.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Психиотрическое",
-            website: "https://lucaclinic.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Терапевтическое",
-            website: "https://www.spbsverdlovka.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Кардиологическое",
-            website: "http://bsmp03.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Кардиологическое",
-            website: "http://drkbrb.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Кардиологическое",
-            website: "http://bsmp03.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-        {
-            title: "Кардиологическое",
-            website: "http://rkbsemashko.ru/",
-            address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1",
-            departments: [],
-            region_id: region[0]._id,
-            type: "department"
-        },
-    ]);
+    const insertedDoctors = await Doctor.insertMany(doctorsArray);
 
-    await Hospital_description.updateOne({
-        "_id": hospital_description[0]._id
+    const doctorMap = new Map();
+    insertedDoctors.forEach(doct => {
+        doctorMap.set(doct.passport_details, doct._id);
+    })
+
+    const MedicalInstituctionArray = Object.values(medical_instituctions).map(medical => ({
+        title: medical.title,
+        website: medical.website,
+        address: medical.address,
+        departments: medical.departments,
+        region_id: medical.region_id,
+        type: medical.type,
+        requisites: medical.requisites
+    }))
+    const insertedMedicalInstituction = await Medical_instituction.insertMany(MedicalInstituctionArray);
+
+    const medicalInstituctionMap = new Map();
+    insertedMedicalInstituction.forEach(medical => {
+        if(medical.type == "hospital")
+            medicalInstituctionMap.set(medical.title, medical._id);
+        else
+            medicalInstituctionMap.set(`${medical.title} ${medical.address}`, medical._id)
+    })
+
+    console.log(medicalInstituctionMap)
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>')
     },
         {
             $set: {
-                departments: [hospital_description[10]._id, hospital_description[11]._id]
+                region_id: regionMap.get('Улан-Удэ'),
+                departments: [medicalInstituctionMap.get('Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110'), medicalInstituctionMap.get('Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+                departments: [medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+                departments: [medicalInstituctionMap.get('Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Москва'),
+                departments: [medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Санкт-Петербург'),
+                departments: [medicalInstituctionMap.get('Нефрологическое Улан-Удэ, Респ. Бурятия, 670031'), medicalInstituctionMap.get('Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+                departments: [medicalInstituctionMap.get('Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+                departments: [medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Калининград'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Курск'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Казань'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Улан-Удэ'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Москва'),
+                departments: [medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3')]
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Москва'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Санкт-Петербург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Нефрологическое Улан-Удэ, Респ. Бурятия, 670031')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Санкт-Петербург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Екатеринбург'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Курск'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Курск'),
+            }
+        }
+    )
+    await Medical_instituction.updateOne({
+        "_id": medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1')
+    },
+        {
+            $set: {
+                region_id: regionMap.get('Калининград'),
             }
         }
     )
 
-    await Hospital_description.updateOne({
-        "_id": hospital_description[1]._id
+    const phoneNumberArray = Object.values(phone_numbers).map(phone => ({
+        phone_number: phone.phone_number,
+        description: phone.description
+    }))
+
+    const insertedPhoneNumber = await Phone_number.insertMany(phoneNumberArray);
+
+    const phoneNumberMap = new Map();
+    insertedPhoneNumber.forEach(phone => {
+        phoneNumberMap.set(phone.phone_number, phone._id);
+    })
+
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437005')
     },
         {
-            $set: {
-                departments: [hospital_description[12]._id]
-            }
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012373040')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012556252')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012233524')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437043')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437004')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012373042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83017773042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012233520')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437044')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012232027')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012451898')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012311112')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012412543')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437875')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012333042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Нефрологическое Улан-Удэ, Респ. Бурятия, 670031')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012222042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012888042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012226042')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437872')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012880000')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012234215')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16')
+            }   
+        }
+    )
+    await Phone_number.updateOne({
+        "_id": phoneNumberMap.get('83012437611')
+    },
+        {
+            $set:{
+                medical_instituction_id: medicalInstituctionMap.get('Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1')
+            }   
         }
     )
 
-    await Hospital_description.updateOne({
-        "_id": hospital_description[2]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[13]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[3]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[14]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[4]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[15]._id, hospital_description[16]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[5]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[17]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[6]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[18]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[7]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[19]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[8]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[20]._id, hospital_description[21]._id]
-            }
-        }
-    )
-
-    await Hospital_description.updateOne({
-        "_id": hospital_description[9]._id
-    },
-        {
-            $set: {
-                departments: [hospital_description[22]._id]
-            }
-        }
-    )
-
-    await Phone_number.insertMany([
-        {
-            phone_number: "83012437005",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[0]._id
-        },
-        {
-            phone_number: "83012373040",
-            description: "Приемная гл. врача",
-            hospital_description_id: hospital_description[1]._id
-        },
-        {
-            phone_number: "83012556252",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[2]._id
-        },
-        {
-            phone_number: "83012233524",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[3]._id
-        },
-        {
-            phone_number: "83012437043",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[4]._id
-        },
-        {
-            phone_number: "83012437004",
-            description: "единый номер горячей линии",
-            hospital_description_id: hospital_description[5]._id
-        },
-        {
-            phone_number: "83012373042",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[6]._id
-        },
-        {
-            phone_number: "83017773042",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[7]._id
-        },
-        {
-            phone_number: "83012233520",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[8]._id
-        },
-        {
-            phone_number: "83012437044",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[9]._id
-        },
-        {
-            phone_number: "83012232027",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[10]._id
-        },
-        {
-            phone_number: "83012451898",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[11]._id
-        },
-        {
-            phone_number: "83012311112",
-            description: "приемная гл. врача",
-            hospital_description_id: hospital_description[12]._id
-        },
-        {
-            phone_number: "83012412543",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[13]._id
-        },
-        {
-            phone_number: "83012437875",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[14]._id
-        },
-        {
-            phone_number: "83012333042",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[15]._id
-        },
-        {
-            phone_number: "83012222042",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[16]._id
-        },
-        {
-            phone_number: "83012888042",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[17]._id
-        },
-        {
-            phone_number: "83012226042",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[18]._id
-        },
-        {
-            phone_number: "83012437872",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[19]._id
-        },
-        {
-            phone_number: "83012880000",
-            description: "Дневной стационар",
-            hospital_description_id: hospital_description[20]._id
-        },
-        {
-            phone_number: "83012234215",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[21]._id
-        },
-        {
-            phone_number: "83012437611",
-            description: "Регистратура",
-            hospital_description_id: hospital_description[22]._id
-        },
-    ]);
-
-    await Requisites.insertMany([
-        {
-            registration_date: "1965-03-12",
-            hospital_reduce_name: "РКБ им. Н.А.Семашко",
-            name_legal_faces: "Овечкин В.А.",
-            ogrn: "1122315577445",
-            inn: "463248513644",
-            kpp: "642478976",
-            hospital_id: hospital_description[0]._id
-        },
-        {
-            registration_date: "1987-11-19",
-            hospital_reduce_name: "ДРКБ",
-            name_legal_faces: "Оверин В.А.",
-            ogrn: "1122315571445",
-            inn: "465136443248",
-            kpp: "478976642",
-            hospital_id: hospital_description[1]._id
-        },
-        {
-            registration_date: "1955-02-01",
-            hospital_reduce_name: "ГАУЗ городская больница №1",
-            name_legal_faces: "Иванов И.И.",
-            ogrn: "1155771223445",
-            inn: "485134632644",
-            kpp: "478642976",
-            hospital_id: hospital_description[2]._id
-        },
-        {
-            registration_date: "2000-02-29",
-            hospital_reduce_name: "ГБУЗ городская больница №2",
-            name_legal_faces: "Нечкин В.Ф",
-            ogrn: "1122315577415",
-            inn: "463248513641",
-            kpp: "786424976",
-            hospital_id: hospital_description[3]._id
-        },
-        {
-            registration_date: "1879-02-11",
-            hospital_reduce_name: "ГБУЗ городская больница №3",
-            name_legal_faces: "Добров Е.П",
-            ogrn: "2112377441555",
-            inn: "851463243644",
-            kpp: "649762478",
-            hospital_id: hospital_description[4]._id
-        },
-        {
-            registration_date: "1965-12-30",
-            hospital_reduce_name: "УКБ им В.В.Виноградова",
-            name_legal_faces: "Петров Д.Н.",
-            ogrn: "1122531557744",
-            inn: "465133248644",
-            kpp: "789766424",
-            hospital_id: hospital_description[5]._id
-        },
-        {
-            registration_date: "1977-09-12",
-            hospital_reduce_name: "ГБУЗ города Москвы городская больница №13",
-            name_legal_faces: "Синицин Н.Д.",
-            ogrn: "1155774451223",
-            inn: "463213644854",
-            kpp: "642894776",
-            hospital_id: hospital_description[6]._id
-        },
-        {
-            registration_date: "1695-11-19",
-            hospital_reduce_name: "ГБУЗ городская больница",
-            name_legal_faces: "Иванов А.А.",
-            ogrn: "1182315577445",
-            inn: "463245136448",
-            kpp: "642976478",
-            hospital_id: hospital_description[7]._id
-        },
-        {
-            registration_date: "1888-06-17",
-            hospital_reduce_name: "ГБУЗ городская больница №31",
-            name_legal_faces: "Сидоров В.П.",
-            ogrn: "5112744523157",
-            inn: "513644463248",
-            kpp: "678974246",
-            hospital_id: hospital_description[8]._id
-        },
-        {
-            registration_date: "1811-10-16",
-            hospital_reduce_name: "ГБУЗ Клиническая больница Святителя Луки",
-            name_legal_faces: "Багданов К.В.",
-            ogrn: "1125577423145",
-            inn: "463213644485",
-            kpp: "648976247",
-            hospital_id: hospital_description[9]._id
-        },
-    ]);
+    
 
     await Doctor_speciality.insertMany([
 
         {
             date_start: "1955-12-17",
             date_end: "1966-01-27",
-            speciality_id: speciality[0]._id,
-            doctor_id: doctor[0]._id,
-            department_id: hospital_description[0]._id
+            speciality_id: specialityMap.get('хирург'),
+            doctor_id: doctorMap.get('8123432544'),
+            department_id: medicalInstituctionMap.get('Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110')
         },
         {
             date_start: "1967-03-12",
             date_end: "2013-11-22",
-            speciality_id: speciality[0]._id,
-            doctor_id: doctor[0]._id,
-            department_id: hospital_description[0]._id
+            speciality_id: specialityMap.get('хирург'),
+            doctor_id: doctorMap.get('8133431234'),
+            department_id: medicalInstituctionMap.get('Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110')
         },
         {
             date_start: "1967-08-27",
             date_end: "2003-12-23",
-            speciality_id: speciality[1]._id,
-            doctor_id: doctor[1]._id,
-            department_id: hospital_description[0]._id
+            speciality_id: specialityMap.get('терапевт'),
+            doctor_id: doctorMap.get('8133431234'),
+            department_id: medicalInstituctionMap.get('Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042')
         },
         {
             date_start: "1971-01-10",
             date_end: "2021-11-11",
-            speciality_id: speciality[2]._id,
-            doctor_id: doctor[0]._id,
-            department_id: hospital_description[1]._id
+            speciality_id: specialityMap.get('терапевт'),
+            doctor_id: doctorMap.get('7421532544'),
+            department_id: medicalInstituctionMap.get('')
         },
         {
             date_start: "1988-02-28",
             date_end: "2023-11-27",
-            speciality_id: speciality[3]._id,
-            doctor_id: doctor[2]._id,
-            department_id: hospital_description[2]._id
+            speciality_id: specialityMap.get('терапевт'),
+            doctor_id: doctorMap.get('7421532544'),
+            department_id: medicalInstituctionMap.get('Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15')
         },
         {
             date_start: "1934-07-17",
             date_end: "1998-11-30",
-            speciality_id: speciality[4]._id,
-            doctor_id: doctor[5]._id,
-            department_id: hospital_description[3]._id
+            speciality_id: specialityMap.get('аллерголог'),
+            doctor_id: doctorMap.get('8823432544'),
+            department_id: medicalInstituctionMap.get('Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042')
         },
         {
             date_start: "1923-03-12",
             date_end: "1991-06-30",
-            speciality_id: speciality[5]._id,
-            doctor_id: doctor[4]._id,
-            department_id: hospital_description[4]._id
+            speciality_id: specialityMap.get('аллерголог'),
+            doctor_id: doctorMap.get('8123432987'),
+            department_id: medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')
         },
         {
             date_start: "1955-12-22",
             date_end: "2017-10-22",
-            speciality_id: speciality[6]._id,
-            doctor_id: doctor[0]._id,
-            department_id: hospital_description[5]._id
+            speciality_id: specialityMap.get('логопед'),
+            doctor_id: doctorMap.get('8123432456'),
+            department_id: medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')
         },
         {
             date_start: "1961-01-31",
             date_end: "2003-09-12",
-            speciality_id: speciality[7]._id,
-            doctor_id: doctor[3]._id,
-            department_id: hospital_description[6]._id
+            speciality_id: specialityMap.get('логопед'),
+            doctor_id: doctorMap.get('8155532544'),
+            department_id: medicalInstituctionMap.get('Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2')
         },
         {
             date_start: "1969-08-22",
             date_end: "2015-05-15",
-            speciality_id: speciality[8]._id,
-            doctor_id: doctor[0]._id,
-            department_id: hospital_description[7]._id
+            speciality_id: specialityMap.get('уролог'),
+            doctor_id: doctorMap.get('8155532544'),
+            department_id: medicalInstituctionMap.get('Нефрологическое Улан-Удэ, Респ. Бурятия, 670031')
         },
     ]);
-
-    /*
-    await Doctor_speciality.insertMany([
-        
-        {
-            date_start: "1955-12-17", 
-            date_end: "1966-01-27", 
-            speciality_id: speciality[0]._id, 
-            doctor_id: doctor[0]._id,
-            department_id: department[0]._id
-        },
-        {
-            date_start: "1967-03-12", 
-            date_end: "2013-11-22", 
-            speciality_id: speciality[0]._id, 
-            doctor_id: doctor[0]._id, 
-            department_id: department[0]._id
-        },
-        {
-            date_start: "1967-08-27", 
-            date_end: "2003-12-23", 
-            speciality_id: speciality[1]._id, 
-            doctor_id: doctor[1]._id, 
-            department_id: department[0]._id
-        },
-        {
-            date_start: "1971-01-10", 
-            date_end: "2021-11-11", 
-            speciality_id: speciality[2]._id, 
-            doctor_id: doctor[0]._id, 
-            department_id: department[1]._id
-        },
-        {
-            date_start: "1988-02-28", 
-            date_end: "2023-11-27", 
-            speciality_id: speciality[3]._id, 
-            doctor_id: doctor[2]._id, 
-            department_id: department[2]._id
-        },
-        {
-            date_start: "1934-07-17", 
-            date_end: "1998-11-30", 
-            speciality_id: speciality[4]._id, 
-            doctor_id: doctor[5]._id, 
-            department_id: department[3]._id
-        },
-        {
-            date_start: "1923-03-12", 
-            date_end: "1991-06-30", 
-            speciality_id: speciality[5]._id, 
-            doctor_id: doctor[4]._id, 
-            department_id: department[3]._id
-        },
-        {
-            date_start: "1955-12-22", 
-            date_end: "2017-10-22", 
-            speciality_id: speciality[6]._id, 
-            doctor_id: doctor[0]._id, 
-            department_id: department[4]._id
-        },
-        {
-            date_start: "1961-01-31", 
-            date_end: "2003-09-12", 
-            speciality_id: speciality[7]._id, 
-            doctor_id: doctor[3]._id, 
-            department_id: department[4]._id
-        },
-        {
-            date_start: "1969-08-22", 
-            date_end: "2015-05-15", 
-            speciality_id: speciality[8]._id, 
-            doctor_id: doctor[0]._id, 
-            department_id: department[5]._id
-        },
-    ]);
-    */
 
     console.log('База данных заполнена');
     mongoose.disconnect();

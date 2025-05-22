@@ -13,7 +13,7 @@ const doctor_specialitySchema = new mongoose.Schema({
     },
     department_id:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'hospital_description'
+        ref: 'medical_instituction'
     }
 });
 
