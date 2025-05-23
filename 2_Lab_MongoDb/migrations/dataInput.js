@@ -110,8 +110,8 @@ export const medical_instituctions = {
         title: "Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>",
         website: "http://www.rkbsemashko.ru/",
         address: "корп. 2, ул. Пирогова, 3а, Улан-Удэ, Респ. Бурятия, 670047",
-        departments: [],
-        region_id: null,
+        departments: ['Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110', 'Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "hospital",
         requisites:
         {
@@ -127,8 +127,8 @@ export const medical_instituctions = {
         title: "Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>",
         website: "http://drkbrb.ru/",
         address: "пр. Строителей, 2А, Улан-Удэ, Респ. Бурятия, 670042",
-        departments: [],
-        region_id: null,
+        departments: ['Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "hospital",
         requisites:
         {
@@ -144,8 +144,8 @@ export const medical_instituctions = {
         title: "ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ",
         website: "http://bsmp03.ru/",
         address: "пр. Строителей, 1, Улан-Удэ, Респ. Бурятия, 670042",
-        departments: [],
-        region_id: null,
+        departments: ['Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "hospital",
         requisites:
         {
@@ -161,8 +161,8 @@ export const medical_instituctions = {
         title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>",
         website: "https://xn--2-btbfp1ai/",
         address: "ул. Павлова, 12, Улан-Удэ, Респ. Бурятия, 670031",
-        departments: [],
-        region_id: null,
+        departments: ['Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "hospital",
         requisites:
         {
@@ -178,8 +178,8 @@ export const medical_instituctions = {
         title: "Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>",
         website: "http://gp3uu.ru/",
         address: "ул. Павлова, 2а, Улан-Удэ, Респ. Бурятия, 670031",
-        departments: [],
-        region_id: null,
+        departments: ['Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2'],
+        region_id: regions['Moscow'].region_name,
         type: "hospital",
         requisites:
         {
@@ -195,8 +195,8 @@ export const medical_instituctions = {
         title: "Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>",
         website: "https://gkb13.ru/",
         address: "670004, Республика Бурятия, город Улан-Удэ, п. Стеклозавод, улица Воронежская 1а",
-        departments: [],
-        region_id: null,
+        departments: ['Нефрологическое Улан-Удэ, Респ. Бурятия, 670031', 'Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3'],
+        region_id: regions['Moscow'].region_name,
         type: "hospital",
         requisites:
         {
@@ -212,8 +212,8 @@ export const medical_instituctions = {
         title: "УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>",
         website: "https://gkb64.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.155",
-        departments: [],
-        region_id: null,
+        departments: ['Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155'],
+        region_id: regions['Saint_Petersburg'].region_name,
         type: "hospital",
         requisites:
         {
@@ -229,8 +229,8 @@ export const medical_instituctions = {
         title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>",
         website: "https://mariin.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.1",
-        departments: [],
-        region_id: null,
+        departments: ['Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5'],
+        region_id: regions['Saint_Petersburg'].region_name,
         type: "hospital",
         requisites:
         {
@@ -246,8 +246,8 @@ export const medical_instituctions = {
         title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>",
         website: "https://www.spbsverdlovka.ru/",
         address: "ул. Вавилова, 61 строение 11, Москва, 117292",
-        departments: [],
-        region_id: null,
+        departments: ['Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16'],
+        region_id: regions['Saint_Petersburg'].region_name,
         type: "hospital",
         requisites:
         {
@@ -263,8 +263,8 @@ export const medical_instituctions = {
         title: "Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>",
         website: "https://lucaclinic.ru/",
         address: "Литейный пр., 56, Санкт-Петербург, 191014",
-        departments: [],
-        region_id: null,
+        departments: ['Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>'],
+        region_id: regions['Ekaterinburg'].region_name,
         type: "hospital",
         requisites:
         {
@@ -280,8 +280,8 @@ export const medical_instituctions = {
         title: "Хирургическое",
         website: "http://www.rkbsemashko.ru/",
         address: "пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110",
-        departments: [],
-        region_id: null,
+        departments: ['Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042': {
@@ -289,15 +289,15 @@ export const medical_instituctions = {
         website: "http://www.rkbsemashko.ru/",
         address: "пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15': {
         title: "Терапевтическое",
         website: "http://www.rkbsemashko.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15",
-        departments: [],
-        region_id: null,
+        departments: ['Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042': {
@@ -305,7 +305,7 @@ export const medical_instituctions = {
         website: "http://drkbrb.ru/",
         address: "пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2': {
@@ -313,7 +313,7 @@ export const medical_instituctions = {
         website: "http://drkbrb.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Нефрологическое Улан-Удэ, Респ. Бурятия, 670031': {
@@ -321,7 +321,7 @@ export const medical_instituctions = {
         website: "http://bsmp03.ru/",
         address: "Улан-Удэ, Респ. Бурятия, 670031",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3': {
@@ -329,7 +329,7 @@ export const medical_instituctions = {
         website: "https://lucaclinic.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155': {
@@ -337,15 +337,15 @@ export const medical_instituctions = {
         website: "https://lucaclinic.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5': {
         title: "Терапевтическое",
         website: "https://www.spbsverdlovka.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5",
-        departments: [],
-        region_id: null,
+        departments: ['Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3'],
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16': {
@@ -353,7 +353,7 @@ export const medical_instituctions = {
         website: "http://bsmp03.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3': {
@@ -361,7 +361,7 @@ export const medical_instituctions = {
         website: "http://drkbrb.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16': {
@@ -369,7 +369,7 @@ export const medical_instituctions = {
         website: "http://bsmp03.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     },
     'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1': {
@@ -377,7 +377,7 @@ export const medical_instituctions = {
         website: "http://rkbsemashko.ru/",
         address: "670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1",
         departments: [],
-        region_id: null,
+        region_id: regions['Ulan_Ude'].region_name,
         type: "department"
     }
 }
@@ -386,116 +386,189 @@ export const phone_numbers = {
     '83012437005': {
             phone_number: "83012437005",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Государственное автономное учреждение здравоохранения <<Республиканская клиническая больница им. Н.А.Семашко>>'
         },
        '83012373040': {
             phone_number: "83012373040",
             description: "Приемная гл. врача",
-            medical_instituction_id: null
+            medical_instituction_id: 'Государственное автономное учреждение здравоохранения <<Детская республиканская клиническая больница>>'
         },
        '83012556252': {
             phone_number: "83012556252",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'ГАУЗ <<Республиканская клиническая больница скорой медицинской помощи им. В.В. Ангапова>> г. Улан-Удэ'
         },
        '83012233524': {
             phone_number: "83012233524",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Государственное бюджетное учреждение здравоохранения <<Городская больница 2>>'
         },
        '83012437043': {
             phone_number: "83012437043",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Государственное бюджетное учреждение здравоохранения <<Городская больница 3>>'
         },
        '83012437004': {
             phone_number: "83012437004",
             description: "единый номер горячей линии",
-            medical_instituction_id: null
+            medical_instituction_id: 'Государственное бюджетное учреждение здравоохранения города Москвы <<Городская клиническая больница 13 Департамента здравоохранения города Москвы>>'
         },
        '83012373042': {
             phone_number: "83012373042",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'УНИВЕРСИТЕТСКАЯ КЛИНИЧЕСКАЯ БОЛЬНИЦА ИМЕНИ В.В.ВИНОГРАДОВА (ФИЛИАЛ) <<РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ ИМЕНИ ПАТРИСА ЛУМУМБЫ>>'
         },
        '83017773042': {
             phone_number: "83017773042",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская Мариинская больница>>'
         },
        '83012233520': {
             phone_number: "83012233520",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Городская клиническая больница 31>>'
         },
        '83012437044': {
             phone_number: "83012437044",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Санкт-Петербургское государственное бюджетное учреждение здравоохранения <<Клиническая больница Святителя Луки>>'
         },
        '83012232027': {
             phone_number: "83012232027",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110'
         },
        '83012451898': {
             phone_number: "83012451898",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042'
         },
        '83012311112': {
             phone_number: "83012311112",
             description: "приемная гл. врача",
-            medical_instituction_id: null
+            medical_instituction_id: 'Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15'
         },
        '83012412543': {
             phone_number: "83012412543",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042'
         },
        '83012437875': {
             phone_number: "83012437875",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2'
         },
        '83012333042': {
             phone_number: "83012333042",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Нефрологическое Улан-Удэ, Респ. Бурятия, 670031'
         },
        '83012222042': {
             phone_number: "83012222042",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Гинекологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Ранжурова, д.3'
         },
        '83012888042': {
             phone_number: "83012888042",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Психиотрическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Викторова, д.155'
         },
        '83012226042': {
             phone_number: "83012226042",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Солнечная, д.5'
         },
        '83012437872': {
             phone_number: "83012437872",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Великая, д.16'
         },
         '83012880000': {
             phone_number: "83012880000",
             description: "Дневной стационар",
-            medical_instituction_id: null
+            medical_instituction_id: 'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.3'
         },
        '83012234215': {
             phone_number: "83012234215",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.16'
         },
        '83012437611': {
             phone_number: "83012437611",
             description: "Регистратура",
-            medical_instituction_id: null
+            medical_instituction_id: 'Кардиологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Воронежская, д.1'
+        },
+}
+
+export const doctor_specialities = {
+        '8123432544': {
+            date_start: "1955-12-17",
+            date_end: "1966-01-27",
+            speciality_id: 'хирург',
+            doctor_id: '8123432544',
+            department_id: 'Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110'
+        },
+        '8133431234': {
+            date_start: "1967-03-12",
+            date_end: "2013-11-22",
+            speciality_id: 'хирург',
+            doctor_id: '8133431234',
+            department_id: 'Хирургическое пр. Динамо, 3, 3 этаж, Санкт-Петербург, 197110'
+        },
+        '8133431255': {
+            date_start: "1967-08-27",
+            date_end: "2003-12-23",
+            speciality_id: 'терапевт',
+            doctor_id: '8133431255',
+            department_id: 'Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042'
+        },
+        '7421532544': {
+            date_start: "1971-01-10",
+            date_end: "2021-11-11",
+            speciality_id: 'терапевт',
+            doctor_id: '7421532544',
+            department_id: 'Педиатрическое пр. Строителей, 2а, Улан-Удэ, Респ. Бурятия, 670042'
+        },
+        '7421532544': {
+            date_start: "1988-02-28",
+            date_end: "2023-11-27",
+            speciality_id: 'терапевт',
+            doctor_id: '7421532544',
+            department_id: 'Терапевтическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Петрова, д.15'
+        },
+        '8823432544': {
+            date_start: "1934-07-17",
+            date_end: "1998-11-30",
+            speciality_id: 'аллерголог',
+            doctor_id: '8823432544',
+            department_id: 'Хирургическое пр. Строителей, 11, Улан-Удэ, Респ. Бурятия, 670042'
+        },
+        '8123432987': {
+            date_start: "1923-03-12",
+            date_end: "1991-06-30",
+            speciality_id: 'аллерголог',
+            doctor_id: '8123432987',
+            department_id: 'Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2'
+        },
+        '8123432456': {
+            date_start: "1955-12-22",
+            date_end: "2017-10-22",
+            speciality_id: 'логопед',
+            doctor_id: '8123432456',
+            department_id: 'Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2'
+        },
+        '8155532544': {
+            date_start: "1961-01-31",
+            date_end: "2003-09-12",
+            speciality_id: 'логопед',
+            doctor_id: '8155532544',
+            department_id: 'Неврологическое 670042, Республика Бурятия, г. Улан-Удэ, ул.Тобольская, д.2'
+        },
+        '8155532544': {
+            date_start: "1969-08-22",
+            date_end: "2015-05-15",
+            speciality_id: 'уролог',
+            doctor_id: '8155532544',
+            department_id: 'Нефрологическое Улан-Удэ, Респ. Бурятия, 670031'
         },
 }
