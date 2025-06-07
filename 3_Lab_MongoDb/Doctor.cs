@@ -43,7 +43,7 @@ namespace _2_Lab_MongoDb
                 if(value != "-")
                     _patronymic = Validation("Отчество", value.Trim(), 4, 50);
                 else
-                    _patronymic = value;
+                    _patronymic = "-";
             }
             get => _patronymic;
         }
@@ -77,19 +77,31 @@ namespace _2_Lab_MongoDb
             }
             get => _address;
         }
-        private DateTime _dateBirtch = new DateTime();
-        public DateTime date_birth
+        private string _dateBirtch = "";
+        public string date_birth
         {
             set
             {
-                if (value == default(DateTime))
-                    Console.WriteLine("Дата рождения не введена");
-                else if (value > DateTime.Now)
+                DateTime _date = new DateTime();
+                try
+                {
+                    _date = DateTime.Parse(value);
+                }
+                catch 
+                {
+                    
+                }
+                if (_date == default(DateTime))
+                    Console.WriteLine("Введена не верная дата");
+                else if (_date > DateTime.Now)
                     Console.WriteLine("Дата рождения не может быть больше текущей даты");
-                else if (value < new DateTime(1903, 01, 01) || value > new DateTime(2013, 01, 01))
+                else if (_date < new DateTime(1903, 01, 01) || _date > new DateTime(2013, 01, 01))
                     Console.WriteLine("Возраст пользователя не может быть больше 123 и не моложе 12 лет");
                 else
-                    _dateBirtch = value;
+                {
+                    // Сохраняем дату в UTC
+                    _dateBirtch = _date.ToShortDateString();
+                }
             }
             get => _dateBirtch;
         }
@@ -98,11 +110,11 @@ namespace _2_Lab_MongoDb
         private string Validation(string title, string value, int minLength, int maxLength)
         {
             if (value.Length < minLength || value.Length > maxLength)
-                Console.WriteLine($"{title} должно содержать от 2 до 30 символов");
+                Console.WriteLine($"{title} должно содержать от {minLength} до {maxLength} символов");
             else if (Regex.IsMatch(value, @"\d"))
                 Console.WriteLine($"{title} не может содержать цифры");
-            else if (!Regex.IsMatch(value, @"^[\p{IsCyrillic}-]+$"))
-                Console.WriteLine($"{title} может содержать только кириллицу и дефис");
+            else if (!Regex.IsMatch(value, @"^[\p{IsCyrillic}-.,()'IVXLCDM]+$"))
+                Console.WriteLine($"{title} может содержать только кириллицу, дефис, пробел, точка, цифры латинского алфавита, апостроф, запятая, открывающая и закрывающая скобка ");
             else if (value.StartsWith("-") || value.EndsWith("-"))
                 Console.WriteLine("Дефис не может быть в начале или конце");
             else

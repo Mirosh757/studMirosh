@@ -36,7 +36,7 @@ namespace _2_Lab_MongoDb
             while (doctor.patronymic == "")
             {
                 Console.Write("Patronymic: ");
-                doctor.patronymic = Console.ReadLine();
+                doctor.patronymic = Console.ReadLine().Trim();
             }
             bool passportUnique = true;
             string passporthelp = "";
@@ -45,7 +45,7 @@ namespace _2_Lab_MongoDb
                 while (passporthelp == "")
                 {
                     Console.Write("Passport details: ");
-                    passporthelp = Console.ReadLine();
+                    passporthelp = Console.ReadLine().Trim();
                     if (!Regex.IsMatch(passporthelp, @"^\d{10}$"))
                     {
                         Console.WriteLine("Паспортные данные должны состоять из 10 цифр");
@@ -70,14 +70,23 @@ namespace _2_Lab_MongoDb
                 doctor.address = Console.ReadLine();
             }
             string[] date_birth;
-            while (doctor.date_birth == new DateTime())
+            while (doctor.date_birth == "")
             {
                 Console.Write("Date birth(Вводить в формате ГГГГ-ММ-ДД): ");
-                date_birth = Console.ReadLine().Split('-');
-                if (date_birth.Length != 3 || date_birth[1].Length > 2 || date_birth[2].Length > 2)
+                date_birth = Console.ReadLine().Trim().Split('-');
+                if (date_birth.Length != 3)
                     Console.Write("Введена некорректная дата рождения\n");
                 else
-                    doctor.date_birth = new DateTime(Int32.Parse(date_birth[0]), Int32.Parse(date_birth[1]), Int32.Parse(date_birth[2]));
+                {
+                    try
+                    {
+                        doctor.date_birth = $"{date_birth[0].Trim()}-{date_birth[1].Trim()}-{date_birth[2].Trim()}";
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введена не корректная дата рождения");
+                    }
+                }
             }
             _doctors.InsertOne(doctor);
             Console.WriteLine("Доктор успешно добавлен в базу данных");
@@ -96,7 +105,7 @@ namespace _2_Lab_MongoDb
                 name = " " + CorrFormat(doctorsAll[i].name, 20) + " ";
                 family = " " + CorrFormat(doctorsAll[i].family, 20) + " ";
                 patronymic = " " + CorrFormat(doctorsAll[i].patronymic, 20) + " ";
-                birth_date = " " + CorrFormat(doctorsAll[i].date_birth.ToShortDateString(), 10) + " ";
+                birth_date = " " + CorrFormat(doctorsAll[i].date_birth, 10) + " ";
                 passport_details = " " + CorrFormat(doctorsAll[i].passport_details, 10) + " ";
                 address = " " + CorrFormat(doctorsAll[i].address, 50) + " ";
                 Console.WriteLine($"{id}|{family}|{name}|{patronymic}|{birth_date}|{address}|{passport_details}");
@@ -114,7 +123,7 @@ namespace _2_Lab_MongoDb
         {
             Console.Write("\nВведите ID врача: ");
             string id = Console.ReadLine();
-            while(Regex.IsMatch(id, @"\D"))
+            while(Regex.IsMatch(id, @"\D") || id == "")
             {
                 Console.Write("Введен не верный id\nВведите ID врача: ");
                 id = Console.ReadLine();
@@ -138,7 +147,7 @@ namespace _2_Lab_MongoDb
         {
             Console.Write("\nВведите ID врача: ");
             string id = Console.ReadLine();
-            while (Regex.IsMatch(id, @"\D"))
+            while (Regex.IsMatch(id, @"\D") || id == "")
             {
                 Console.Write("Введен не верный ID\nВведите ID врача: ");
                 id = Console.ReadLine();
@@ -172,7 +181,7 @@ namespace _2_Lab_MongoDb
                 while (doctorUpdate.patronymic == "")
                 {
                     Console.Write("Patronymic: ");
-                    patronymic = Console.ReadLine();
+                    patronymic = Console.ReadLine().Trim();
                     if (patronymic == "")
                         doctorUpdate.patronymic = doctor.patronymic;
                     else
@@ -198,8 +207,9 @@ namespace _2_Lab_MongoDb
                             passporthelp = "";
                         }
                     }
+                    Doctor doctorPassport = _doctors.Find(d => d.passport_details == passporthelp).First();
                     passportUnique = _doctors.Find(d => d.passport_details == passporthelp).Any();
-                    if (passportUnique)
+                    if (passportUnique && doctorPassport.Id != doctor.Id)
                     {
                         Console.WriteLine("Пасспортные данные должны быть уникальными");
                         passporthelp = "";
@@ -220,7 +230,7 @@ namespace _2_Lab_MongoDb
                         doctorUpdate.address = address;
                 }
                 string[] date_birth;
-                while (doctorUpdate.date_birth == new DateTime())
+                while (doctorUpdate.date_birth == "")
                 {
                     Console.Write("Date birth(Вводить в формате ГГГГ-ММ-ДД): ");
                     date_birth = Console.ReadLine().Split('-');
@@ -229,12 +239,21 @@ namespace _2_Lab_MongoDb
                         doctorUpdate.date_birth = doctor.date_birth;
                         break;
                     }
-                    if (date_birth.Length != 3 || date_birth[1].Length > 2 || date_birth[2].Length > 2)
+                    if (date_birth.Length != 3)
                         Console.Write("Введена некорректная дата рождения\n");
                     else
-                        doctorUpdate.date_birth = new DateTime(Int32.Parse(date_birth[0]), Int32.Parse(date_birth[1]), Int32.Parse(date_birth[2]));
+                    {
+                        try
+                        {
+                            doctorUpdate.date_birth = $"{date_birth[0].Trim()}-{date_birth[1].Trim()}-{date_birth[2].Trim()}";
+                        }
+                        catch 
+                        {
+                            Console.WriteLine("Введена не корректная дата рождения");
+                        }
+                    }
                 }
-                var filter = new BsonDocument("passport_details", doctorUpdate.passport_details);
+                var filter = new BsonDocument("_id", doctor.Id);
                 var updateSettings = new BsonDocument("$set", new BsonDocument { 
                     { "name", doctorUpdate.name }, 
                     { "family", doctorUpdate.family }, 
@@ -300,8 +319,12 @@ namespace _2_Lab_MongoDb
             }
             if(count > 4)
                 Console.WriteLine($"Удалены {count} докторов");
-            else
+            else if(count == 1)
+                Console.WriteLine($"Удален {count} доктор");
+            else if (count <= 4)
                 Console.WriteLine($"Удалено {count} доктора");
+            else
+                Console.WriteLine("Ничего не работает");
 
             PrintMenu();
         }

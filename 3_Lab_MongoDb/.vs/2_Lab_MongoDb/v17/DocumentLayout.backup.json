@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\",
+  "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_mongodb\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\3_lab_mongodb\\facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|solutionrelative:facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_mongodb\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\3_lab_mongodb\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|solutionrelative:doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\2_lab_mongodb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\3_lab_mongodb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05A78B4E-3581-4C52-9827-F673A22132CC}|2_Lab_MongoDb.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Doctor.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Doctor.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Doctor.cs",
               "RelativeDocumentMoniker": "Doctor.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Doctor.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Doctor.cs",
               "RelativeToolTip": "Doctor.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAwwDgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowC0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T12:29:35.28Z",
               "EditorCaption": ""
@@ -41,11 +41,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Facade.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Facade.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Facade.cs",
               "RelativeDocumentMoniker": "Facade.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Facade.cs*",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Facade.cs*",
               "RelativeToolTip": "Facade.cs*",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAswCcBAABtAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAswNMAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T12:28:55.147Z",
               "EditorCaption": ""
@@ -54,14 +54,13 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Program.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\2_Lab_MongoDb\\Program.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\3_Lab_MongoDb\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T12:28:22.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T12:28:22.162Z"
             }
           ]
         }

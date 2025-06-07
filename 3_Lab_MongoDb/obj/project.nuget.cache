@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hYHokhLv4Dk=",
+  "dgSpecHash": "8En0bD5sg30=",
   "success": true,
-  "projectFilePath": "D:\\Программы\\VS\\2_Lab_MongoDb\\2_Lab_MongoDb.csproj",
+  "projectFilePath": "D:\\Программы\\VS\\3_Lab_MongoDb\\2_Lab_MongoDb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\darty\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\darty\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
