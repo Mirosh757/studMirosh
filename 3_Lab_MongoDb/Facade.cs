@@ -121,11 +121,11 @@ namespace _2_Lab_MongoDb
         }
         public void DoctorRetrieve()
         {
-            Console.Write("\nВведите ID врача: ");
+            Console.Write("\nВведите номер врача: ");
             string id = Console.ReadLine();
             while(Regex.IsMatch(id, @"\D") || id == "")
             {
-                Console.Write("Введен не верный id\nВведите ID врача: ");
+                Console.Write("Введен не верный номер\nВведите номер врача: ");
                 id = Console.ReadLine();
             }
             List<Doctor> doctorsAll = _doctors.Find(doctor => true).SortBy(f => f.family).ToList();
@@ -140,16 +140,16 @@ namespace _2_Lab_MongoDb
                 Console.WriteLine($"Passport details: {doctor.passport_details}");
             }
             else
-                Console.WriteLine("Доктора с введенным ID не существует в базе данных");
+                Console.WriteLine("Доктора с введенным номером не существует в базе данных");
             PrintMenu();
         }
         public async void DoctorUpdate()
         {
-            Console.Write("\nВведите ID врача: ");
+            Console.Write("\nВведите номер врача: ");
             string id = Console.ReadLine();
             while (Regex.IsMatch(id, @"\D") || id == "")
             {
-                Console.Write("Введен не верный ID\nВведите ID врача: ");
+                Console.Write("Введен не верный номер\nВведите номер врача: ");
                 id = Console.ReadLine();
             }
             List<Doctor> doctorsAll = _doctors.Find(doctor => true).SortBy(f => f.family).ToList();
@@ -207,18 +207,29 @@ namespace _2_Lab_MongoDb
                             passporthelp = "";
                         }
                     }
-                    Doctor doctorPassport = _doctors.Find(d => d.passport_details == passporthelp).First();
+                    if (!passportUnique)
+                        break;
                     passportUnique = _doctors.Find(d => d.passport_details == passporthelp).Any();
-                    if (passportUnique && doctorPassport.Id != doctor.Id)
-                    {
-                        Console.WriteLine("Пасспортные данные должны быть уникальными");
-                        passporthelp = "";
-                    }
-                    else
+                    if(!passportUnique)
                     {
                         doctorUpdate.passport_details = passporthelp;
                         passportUnique = false;
                     }
+                    else
+                    {
+                        Doctor? doctorPassport = _doctors.Find(d => d.passport_details == passporthelp).First();
+                        if (doctorPassport.Id != doctor.Id)
+                        {
+                            Console.WriteLine("Пасспортные данные должны быть уникальными");
+                            passporthelp = "";
+                        }
+                        else
+                        {
+                            doctorUpdate.passport_details = passporthelp;
+                            passportUnique = false;
+                        }
+                    }
+                    
                 }
                 while (doctorUpdate.address == "")
                 {
@@ -269,18 +280,18 @@ namespace _2_Lab_MongoDb
                     Console.WriteLine("Ничего не изменилось");
             }
             else
-                Console.WriteLine("Доктора с введенным ID не существует в базе данных");
+                Console.WriteLine("Доктора с введенным номером не существует в базе данных");
             PrintMenu();
         }
         public void DoctorDelete()
         {
-            Console.Write("Введите ID врача для удаления\nId: ");
+            Console.Write("Введите номер врача для удаления\nНомер: ");
             string id = Console.ReadLine();
             while (true)
             {
                 while (Regex.IsMatch(id, @"\D") || id == "")
                 {
-                    Console.Write("Введен не верный ID\nВведите ID врача: ");
+                    Console.Write("Введен не верный номер\nВведите номер врача: ");
                     id = Console.ReadLine();
                 }
                 List<Doctor> doctorsAll = _doctors.Find(doctor => true).SortBy(f => f.family).ToList();
@@ -295,14 +306,14 @@ namespace _2_Lab_MongoDb
                     break;
                 }
                 else
-                    Console.WriteLine("Доктора с введенным Id не существует в базе");
+                    Console.WriteLine("Доктора с введенным номером не существует в базе");
                 id = "";
             }
             PrintMenu();
         }
         public void DoctorDeleteMany()
         {
-            Console.Write("Введите ID врачей для удаления(разделителями считать пробелы)\nId: ");
+            Console.Write("Введите номера врачей для удаления(разделителями считать пробелы)\nНомер: ");
             string[] idDelete = Console.ReadLine().Split(' ');
             long count = 0;
             List<Doctor> doctorsAll = _doctors.Find(doctor => true).SortBy(f => f.family).ToList();
@@ -324,7 +335,7 @@ namespace _2_Lab_MongoDb
             else if (count <= 4)
                 Console.WriteLine($"Удалено {count} доктора");
             else
-                Console.WriteLine("Ничего не работает");
+                Console.WriteLine("Ничего не удалено");
 
             PrintMenu();
         }
