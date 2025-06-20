@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Text.RegularExpressions;
-using System.Globalization;
 
 namespace _4_Lab_MongoDb
 {
@@ -28,7 +27,7 @@ namespace _4_Lab_MongoDb
                 else if (value.StartsWith("-") || value.EndsWith("-"))
                     Console.WriteLine("Дефис не может быть в начале или конце");
                 else
-                    _region_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value.ToLower());
+                    _region_name = value;
             }
             get => _region_name;
         }

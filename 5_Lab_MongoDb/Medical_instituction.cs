@@ -41,13 +41,7 @@ namespace _4_Lab_MongoDb
                 else if (value.StartsWith(".") || value.EndsWith("."))
                     Console.WriteLine("Точка не может быть в начале или конце");
                 else
-                {
-                    string[] splitweb = value.Split(".");
-                    if (splitweb[0].Length > 2 && splitweb[1].Length > 2)
-                        _website = value;
-                    else
-                        Console.WriteLine("Не верно указан веб-сайт");
-                }
+                    _website = value;
             }
             get => _website;
         }

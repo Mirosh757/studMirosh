@@ -46,13 +46,13 @@ namespace _4_Lab_MongoDb
             {
                 Console.WriteLine($"{i + 1}. {regions[i].region_name}");
             }
-            Console.Write("Введите номер город: ");
+            Console.Write("Введите номер города: ");
             string regionId = Console.ReadLine().Trim();
             while(true)
             {
                 while (Regex.IsMatch(regionId, @"\D") || regionId == "")
                 {
-                    Console.Write("Введен не верный номер\nВведите номер город: ");
+                    Console.Write("Введен не верный номер\nВведите номер города: ");
                     regionId = Console.ReadLine();
                 }
                 if ((Int32.Parse(regionId) - 1) < regions.Count)
@@ -61,8 +61,7 @@ namespace _4_Lab_MongoDb
                     break;
                 }
                 else
-                    Console.WriteLine("Город с введенным номером не существует в базе данных");
-                regionId = "";
+                    Console.WriteLine("Доктора с введенным номером не существует в базе данных");
             }
             Console.Write("Укажите номер типа мед. учереждения\n1. Больница\n2. Отделение\nНомер типа учереждения: ");
             string numberOfType = Console.ReadLine().Trim();
@@ -575,182 +574,332 @@ namespace _4_Lab_MongoDb
                 Console.WriteLine("Ничего не удалено");
             PrintMenu();
         }
-        private void RegionCreate()
-        {
-            var region = new Region();
-            Console.Write("\nДля добавления нового города введите данные\n");
-            while(string.IsNullOrEmpty(region.region_name))
-            {
-                Console.Write("Название: ");
-                region.region_name = Console.ReadLine().Trim();
-            }
-            _region.InsertOne(region);
-            Console.WriteLine("Город успешно вставлен");
-            PrintMenu();
-        }
-        private void RegionRetriveAll()
-        {
-            var regionAll = _region.Find(regions => true).SortBy(f => f.Id).ToList();
-            string regionTitle, id;
-            Console.WriteLine("№   | Город                                              ");
 
-            for (int i = 0; i < regionAll.Count; i++)
-            {
-                id = CorrFormat((i + 1).ToString(), 3) + " ";
-                regionTitle = " " + CorrFormat(regionAll[i].region_name, 50);
-                Console.WriteLine($"{id}|{regionTitle}");
-            }
-            PrintMenu();
-        }
-        private void RegionRetrive()
+        public void MedicalSearch()
         {
-            Console.Write("\nВведите номер города: ");
-            string id = Console.ReadLine();
-            while (Regex.IsMatch(id, @"\D") || id == "")
+            var searchParams = new SearchParameters();
+            bool continueSearch = true;
+
+            while (continueSearch)
             {
-                Console.Write("Введен не верный номер\nВведите номер города: ");
-                id = Console.ReadLine();
+                Console.WriteLine("\nВыберите критерии поиска (поиск по подстроке):");
+                Console.WriteLine("1. Название учреждения");
+                Console.WriteLine("2. Веб-сайт");
+                Console.WriteLine("3. Адрес");
+                Console.WriteLine("4. Город");
+                Console.WriteLine("5. Тип учреждения");
+                Console.WriteLine("6. Сокращенное название больницы");
+                Console.WriteLine("7. Реквизиты (ОГРН/ИНН/КПП)");
+                Console.WriteLine("8. Показать результаты");
+                Console.WriteLine("0. Вернуться в меню");
+                Console.Write("Выберите действие: ");
+
+                string choice = Console.ReadLine().Trim();
+                switch (choice)
+                {
+                    case "1":
+                        Console.Write("Введите часть названия: ");
+                        searchParams.Title = Console.ReadLine().Trim();
+                        break;
+                    case "2":
+                        Console.Write("Введите часть веб-сайта: ");
+                        searchParams.Website = Console.ReadLine().Trim();
+                        break;
+                    case "3":
+                        Console.Write("Введите часть адреса: ");
+                        searchParams.Address = Console.ReadLine().Trim();
+                        break;
+                    case "4":
+                        var regionAll = _region.Find(regions => true).SortBy(f => f.Id).ToList();
+                        string regionTitle, id;
+                        Console.WriteLine("№   | Город                                              ");
+                        for (int i = 0; i < regionAll.Count; i++)
+                        {
+                            id = CorrFormat((i + 1).ToString(), 3) + " ";
+                            regionTitle = " " + CorrFormat(regionAll[i].region_name, 50);
+                            Console.WriteLine($"{id}|{regionTitle}");
+                        }
+                        Console.Write("Введите номер города: ");
+                        while (true)
+                        {
+                            id = Console.ReadLine();
+                            while (Regex.IsMatch(id, @"\D") || id == "")
+                            {
+                                Console.Write("Введен не верный номер\nВведите номер города: ");
+                                id = Console.ReadLine();
+                            }
+                            if ((Int32.Parse(id) - 1) < regionAll.Count)
+                            {
+                                searchParams.Region = regionAll[Int32.Parse(id) - 1].region_name;
+                                break;
+                            }
+                            else
+                                Console.Write("Город с введенным номером не существует в базе данных\nВведите номер города: ");
+                            id = "";
+                        }
+                        break;
+                    case "5":
+                        Console.Write("1. hospital\n2. department\nВведите тип: ");
+                        string typeMed = Console.ReadLine().Trim();
+                        while (typeMed != "1" && typeMed != "2")
+                        {
+                            Console.Write("Введено не верное значение\nВведите тип: ");
+                            typeMed = Console.ReadLine();
+                        }
+                        searchParams.Type = typeMed == "1" ? "hospital" : "department";
+                        break;
+                    case "6":
+                        Console.Write("Введите часть сокращенного названия: ");
+                        searchParams.ReduceName = Console.ReadLine().Trim();
+                        break;
+                    case "7":
+                        Console.WriteLine("\nВыберите реквизит для поиска:");
+                        Console.WriteLine("1. ОГРН");
+                        Console.WriteLine("2. ИНН");
+                        Console.WriteLine("3. КПП");
+                        Console.Write("Выберите: ");
+                        string reqChoice = Console.ReadLine().Trim();
+
+                        switch (reqChoice)
+                        {
+                            case "1":
+                                Console.Write("Введите ОГРН: ");
+                                string ogrn = Console.ReadLine().Trim();
+                                while(Regex.IsMatch(ogrn, @"^\D+$") || ogrn.Length > 13)
+                                {
+                                    Console.Write("Введено не верное значение\n Введите ОГРН: ");
+                                    ogrn = Console.ReadLine().Trim();
+                                }
+                                searchParams.Ogrn = ogrn;
+                                break;
+                            case "2":
+                                Console.Write("Введите часть ИНН: ");
+                                string inn = Console.ReadLine().Trim();
+                                while (Regex.IsMatch(inn, @"^\D+$") || inn.Length > 12)
+                                {
+                                    Console.Write("Введено не верное значение\n Введите ИНН: ");
+                                    inn = Console.ReadLine().Trim();
+                                }
+                                searchParams.Inn = inn;
+                                break;
+                            case "3":
+                                Console.Write("Введите часть КПП: ");
+                                string kpp = Console.ReadLine().Trim();
+                                while (Regex.IsMatch(kpp, @"^\D+$") || kpp.Length > 9)
+                                {
+                                    Console.Write("Введено не верное значение\n Введите КПП: ");
+                                    kpp = Console.ReadLine().Trim();
+                                }
+                                searchParams.Kpp = kpp;
+                                break;
+                            default:
+                                Console.WriteLine("Неверный выбор реквизита");
+                                break;
+                        }
+                        break;
+                    case "8":
+                        ExecuteMedicalSearch(searchParams);
+                        continueSearch = false;
+                        break;
+                    case "0":
+                        PrintMenu();
+                        return;
+                    default:
+                        Console.WriteLine("Неверный выбор. Попробуйте снова.");
+                        break;
+                }
             }
-            var regionAll = _region.Find(regions => true).SortBy(f => f.Id).ToList();
-            if ((Int32.Parse(id) - 1) < regionAll.Count)
-            {
-                Region region = regionAll[Int32.Parse(id) - 1];
-                Console.WriteLine($"Город: {region.region_name}");
-            }
-            else
-                Console.WriteLine("Город с введенным номером не существует в базе данных");
-            PrintMenu();
         }
-        private void RegionUpdate()
+
+        private class SearchParameters
+        {
+            public string Title { get; set; } = "";
+            public string Website { get; set; } = "";
+            public string Address { get; set; } = "";
+            public string Region { get; set; } = "";
+            public string Type { get; set; } = "";
+            public string ReduceName { get; set; } = "";
+            public string Ogrn { get; set; } = "";
+            public string Inn { get; set; } = "";
+            public string Kpp { get; set; } = "";
+        }
+
+        private void ExecuteMedicalSearch(SearchParameters searchParams)
         {
             try
             {
-                var regionAll = _region.Find(r => true).SortBy(r => r.Id).ToList();
+                // Настройки пагинации
+                Console.Write("\nКоличество результатов на странице (по умолчанию 5): ");
+                string pageSizeInput = Console.ReadLine().Trim();
+                int pageSize = 0;
+                if (pageSizeInput.Length > 10)
+                    pageSize = Int32.MaxValue;
+                else
+                    pageSize = string.IsNullOrEmpty(pageSizeInput) ? 5 : int.Parse(pageSizeInput);
 
-                // Вывод списка регионов
-                Console.WriteLine("\nСписок городов:");
-                for (int i = 0; i < regionAll.Count; i++)
+                Console.Write("Номер страницы (по умолчанию 1): ");
+                string pageInput = Console.ReadLine().Trim();
+                int page = 0;
+                if(pageInput.Length > 10)
+                    page = Int32.MaxValue;
+                else
+                    page = string.IsNullOrEmpty(pageInput) ? 1 : int.Parse(pageInput);
+
+                // Строим фильтр
+                var filterBuilder = Builders<Medical_instituction>.Filter;
+                var filters = new List<FilterDefinition<Medical_instituction>>();
+
+                // Добавляем условия поиска
+                if (!string.IsNullOrEmpty(searchParams.Title))
+                    filters.Add(filterBuilder.Regex("title", new BsonRegularExpression($".*{Regex.Escape(searchParams.Title)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Website))
+                    filters.Add(filterBuilder.Regex("website", new BsonRegularExpression($".*{Regex.Escape(searchParams.Website)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Address))
+                    filters.Add(filterBuilder.Regex("address", new BsonRegularExpression($".*{Regex.Escape(searchParams.Address)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Type))
+                    filters.Add(filterBuilder.Eq("type", searchParams.Type));
+
+                if (!string.IsNullOrEmpty(searchParams.ReduceName))
+                    filters.Add(filterBuilder.Regex("requisites.hospital_reduce_name",
+                        new BsonRegularExpression($".*{Regex.Escape(searchParams.ReduceName)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Ogrn))
+                    filters.Add(filterBuilder.Regex("requisites.ogrn",
+                        new BsonRegularExpression($".*{Regex.Escape(searchParams.Ogrn)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Inn))
+                    filters.Add(filterBuilder.Regex("requisites.inn",
+                        new BsonRegularExpression($".*{Regex.Escape(searchParams.Inn)}.*", "i")));
+
+                if (!string.IsNullOrEmpty(searchParams.Kpp))
+                    filters.Add(filterBuilder.Regex("requisites.kpp",
+                        new BsonRegularExpression($".*{Regex.Escape(searchParams.Kpp)}.*", "i")));
+
+                // Поиск по региону
+                if (!string.IsNullOrEmpty(searchParams.Region))
                 {
-                    Console.WriteLine($"{i + 1}. {regionAll[i].region_name}");
-                }
+                    var regionFilter = Builders<Region>.Filter.Regex("region_name",
+                        new BsonRegularExpression($".*{Regex.Escape(searchParams.Region)}.*", "i"));
+                    var regionIds = _region.Find(regionFilter).Project(r => r.Id).ToList();
 
-                // Выбор региона для редактирования
-                Console.Write("\nВведите номер города для редактирования: ");
-                string input = Console.ReadLine().Trim();
-
-                while (!int.TryParse(input, out int index) || index < 1 || index > regionAll.Count)
-                {
-                    Console.Write("Неверный номер. Введите корректный номер города: ");
-                    input = Console.ReadLine().Trim();
-                }
-
-                var regionToUpdate = regionAll[Int32.Parse(input) - 1];
-
-                // Запрос нового названия
-                Console.WriteLine($"\nТекущее название: {regionToUpdate.region_name}");
-                Console.Write("Введите новое название (оставьте пустым, чтобы не изменять): ");
-                string newName = Console.ReadLine().Trim();
-
-                if (!string.IsNullOrEmpty(newName))
-                {
-                    // Проверка на уникальность имени
-                    var nameExists = _region.Find(r =>
-                        r.region_name == newName && r.Id != regionToUpdate.Id).Any();
-
-                    if (nameExists)
+                    if (regionIds.Any())
                     {
-                        Console.WriteLine("Город с таким названием уже существует!");
-                        PrintMenu();
-                        return;
-                    }
-
-                    // Обновление документа
-                    var update = Builders<Region>.Update
-                        .Set(r => r.region_name, newName);
-
-                    var result = _region.UpdateOne(
-                        r => r.Id == regionToUpdate.Id,
-                        update);
-
-                    if (result.ModifiedCount > 0)
-                    {
-                        Console.WriteLine("Название города успешно обновлено!");
+                        filters.Add(filterBuilder.In("region_id", regionIds));
                     }
                     else
                     {
-                        Console.WriteLine("Не удалось обновить название города.");
+                        filters.Add(filterBuilder.Eq("_id", ObjectId.Empty));
+                    }
+                }
+
+                var finalFilter = filters.Any() ? filterBuilder.And(filters) : filterBuilder.Empty;
+
+                // Выполняем поиск
+                var totalCount = _medical.CountDocuments(finalFilter);
+                int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                page = Math.Max(1, Math.Min(page, totalPages));
+
+                Console.WriteLine($"\nНайдено учреждений: {totalCount}. Страница {page} из {totalPages}");
+
+                var results = _medical.Find(finalFilter)
+                    .SortBy(m => m.title)
+                    .Skip((page - 1) * pageSize)
+                    .Limit(pageSize)
+                    .ToList();
+
+                var regions = _region.Find(r => true).ToList();
+
+                // Вывод результатов
+                if (results.Any())
+                {
+                    Console.WriteLine("\nРезультаты поиска:");
+                    Console.WriteLine("№  | Название                           | Тип        | Адрес                               | Город ");
+                    Console.WriteLine("--------------------------------------------------------------------------------------------------");
+
+                    foreach (var (medical, index) in results.Select((m, i) => (m, i)))
+                    {
+                        var region = regions.FirstOrDefault(r => r.Id == medical.region_id);
+                        Console.WriteLine($"{index + 1,-3}| {CorrFormat(medical.title, 34)} | {CorrFormat(medical.type, 10)} | {CorrFormat(medical.address, 35)} | {CorrFormat(region?.region_name ?? "N/A", 20)}");
+                    }
+
+                    // Навигация
+                    if (totalPages > 1)
+                    {
+                        ShowPaginationMenu(searchParams, pageSize, page, totalPages);
+                    }
+                    else
+                    {
+                        WaitForMenu();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Название города не изменено.");
+                    ShowNoResultsMenu();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Произошла ошибка при обновлении: {ex.Message}");
+                Console.WriteLine($"Ошибка при выполнении поиска: {ex.Message}");
+                WaitForMenu();
             }
-            PrintMenu();
         }
-        private void RegionDelete()
+
+        private void ShowPaginationMenu(SearchParameters searchParams, int pageSize, int page, int totalPages)
         {
-            Console.Write("Введите номер города для удаления\nНомер: ");
-            string id = Console.ReadLine();
-            while (true)
+            Console.WriteLine("\nНавигация:");
+            if (page > 1) Console.WriteLine("P - Предыдущая страница");
+            if (page < totalPages) Console.WriteLine("N - Следующая страница");
+            Console.WriteLine("S - Новый поиск");
+            Console.WriteLine("M - Вернуться в меню");
+            Console.Write("Выберите действие: ");
+
+            string action = Console.ReadLine().Trim().ToUpper();
+            switch (action)
             {
-                while (Regex.IsMatch(id, @"\D") || id == "")
-                {
-                    Console.Write("Введен не верный номер\nВведите номер города: ");
-                    id = Console.ReadLine();
-                }
-                List<Region> regionAll = _region.Find(reg => true).SortBy(f => f.Id).ToList();
-                if ((Int32.Parse(id) - 1) < regionAll.Count && Int32.Parse(id) > 0)
-                {
-                    Region regionDelete = regionAll[Int32.Parse(id) - 1];
-                    List<Medical_instituction> medicalAll = _medical.Find(reg => reg.region_id == regionDelete.Id).ToList();
-                    if (medicalAll == null)
-                    {
-                        var result = _region.DeleteOne(reg => reg.Id == regionDelete.Id);
-                        if (result.DeletedCount > 0)
-                            Console.WriteLine("Удаление прошло успешно");
-                        else
-                            Console.WriteLine("Удаление не прошло успешно");
-                    }
-                    else
-                        Console.WriteLine("Нельзя удалить данный город, так как с ним связаны учереждения");
+                case "P" when page > 1:
+                    ExecuteMedicalSearch(searchParams, pageSize, page - 1);
                     break;
-                }
-                else
-                    Console.WriteLine("Город с введенным номером не существует в базе");
-                id = "";
+                case "N" when page < totalPages:
+                    ExecuteMedicalSearch(searchParams, pageSize, page + 1);
+                    break;
+                case "S":
+                    MedicalSearch();
+                    break;
+                case "M":
+                    PrintMenu();
+                    break;
+                default:
+                    ExecuteMedicalSearch(searchParams, pageSize, page);
+                    break;
             }
-            PrintMenu();
         }
-        private void RegionDeleteMany()
+
+        private void ExecuteMedicalSearch(SearchParameters searchParams, int pageSize, int page)
         {
-            Console.Write("Введите номера городов для удаления(разделителями считать пробелы)\nНомер: ");
-            string[] idDelete = Console.ReadLine().Split(' ');
-            long count = 0;
-            List<Region> regionAll = _region.Find(reg => true).SortBy(f => f.Id).ToList();
-            foreach (string id in idDelete)
-            {
-                if (Regex.IsMatch(id, @"^\d+$") && id != "")
-                {
-                    if ((Int32.Parse(id) - 1) < regionAll.Count && Int32.Parse(id) > 0)
-                    {
-                        List<Medical_instituction> medicalAll = _medical.Find(reg => reg.region_id == regionAll[Int32.Parse(id) - 1].Id).ToList();
-                        if (medicalAll == null)
-                        {
-                            var result = _region.DeleteOne(reg => reg.Id == regionAll[Int32.Parse(id) - 1].Id);
-                            count += result.DeletedCount;
-                        }
-                    }
-                }
-            }
-            if (count > 0)
-                Console.WriteLine($"Удалено {count} записей");
-            else
-                Console.WriteLine("Ничего не удалено");
+            Console.Clear();
+            Console.WriteLine("\nПродолжение поиска:");
+            ExecuteMedicalSearch(searchParams);
+        }
+
+        private void ShowNoResultsMenu()
+        {
+            Console.WriteLine("Ничего не найдено.");
+            Console.WriteLine("\n1. Повторить поиск");
+            Console.WriteLine("2. Вернуться в меню");
+            Console.Write("Выберите действие: ");
+
+            string choice = Console.ReadLine().Trim();
+            if (choice == "1") MedicalSearch();
+            else PrintMenu();
+        }
+
+        private void WaitForMenu()
+        {
+            Console.WriteLine("\nНажмите Enter для возврата в меню...");
+            Console.ReadLine();
             PrintMenu();
         }
         public void PrintMenu()
@@ -762,12 +911,7 @@ namespace _4_Lab_MongoDb
             Console.WriteLine("4. Обновить данные мед. учереждения");
             Console.WriteLine("5. Удалить мед. учереждение");
             Console.WriteLine("6. Удалить несколько мед. учереждений");
-            Console.WriteLine("7. Добавить новый город");
-            Console.WriteLine("8. Просмотреть все города");
-            Console.WriteLine("9. Найти город по номеру");
-            Console.WriteLine("10. Обновить данные города");
-            Console.WriteLine("11. Удалить город");
-            Console.WriteLine("12. Удалить несколько городов");
+            Console.WriteLine("7. Поиск экземпляров сущности по значениям атрибутов");
             Console.WriteLine("0. Выход");
             Console.Write("Выберите действие: ");
             switch (Console.ReadLine())
@@ -790,27 +934,11 @@ namespace _4_Lab_MongoDb
                 case "6":
                     MedicalDeleteMany();
                     break;
-                case "7":
-                    RegionCreate();
-                    break;
-                case "8":
-                    RegionRetriveAll();
-                    break;
-                case "9":
-                    RegionRetrive();
-                    break;
-                case "10":
-                    RegionUpdate();
-                    break;
-                case "11":
-                    RegionDelete();
-                    break;
-                case "12":
-                    RegionDeleteMany();
-                    break;
-
                 case "0":
                     return;
+                case "7":
+                    MedicalSearch();
+                    break;
                 default:
                     Console.WriteLine("Неверный выбор. Попробуйте снова."); PrintMenu();
                     break;

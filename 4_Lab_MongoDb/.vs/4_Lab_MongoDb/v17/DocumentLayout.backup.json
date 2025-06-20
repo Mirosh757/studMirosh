@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\requisites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:requisites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\medical_instituction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:medical_instituction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|d:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\vs\\4_lab_mongodb\\requisites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F084D9-AE34-40B6-9E8F-0BFD53E6F283}|4_Lab_MongoDb.csproj|solutionrelative:requisites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T04:21:24.532Z",
               "EditorCaption": ""
@@ -51,48 +51,48 @@
               "Title": "Facade.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Facade.cs",
               "RelativeDocumentMoniker": "Facade.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Facade.cs*",
-              "RelativeToolTip": "Facade.cs*",
-              "ViewState": "AgIAAHwBAAAAAAAAAAAmwI8BAABMAAAAAAAAAA==",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Facade.cs",
+              "RelativeToolTip": "Facade.cs",
+              "ViewState": "AgIAAFsCAAAAAAAAAAAowHgCAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-12T11:40:21.506Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Requisites.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Requisites.cs",
               "RelativeDocumentMoniker": "Requisites.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Requisites.cs",
               "RelativeToolTip": "Requisites.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAuwC0AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAwwC0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T04:46:45.448Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Medical_instituction.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Medical_instituction.cs",
               "RelativeDocumentMoniker": "Medical_instituction.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Medical_instituction.cs",
               "RelativeToolTip": "Medical_instituction.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAcwBYAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwDAAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T04:32:59.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Region.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Region.cs",
               "RelativeDocumentMoniker": "Region.cs",
               "ToolTip": "D:\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\VS\\4_Lab_MongoDb\\Region.cs",
               "RelativeToolTip": "Region.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAywBEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-11T04:22:25.855Z",
               "EditorCaption": ""
