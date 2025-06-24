@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -24,7 +25,53 @@ namespace _4_Lab_MongoDb
         public void MedicalCreate()
         {
             var medical = new Medical_instituction();
+            Console.Write("\nУкажите номер типа мед. учреждения\n1. Больница\n2. Отделение\nНомер типа учреждения: ");
+            string numberOfType = Console.ReadLine().Trim();
+            while (numberOfType != "1" && numberOfType != "2")
+            {
+                Console.Write("Указано не верное значение\nНомер типа учреждения: ");
+                numberOfType = Console.ReadLine().Trim();
+            }
+
+            medical.type = numberOfType == "1" ? "hospital" : "department";
             var regions = _region.Find(r => true).SortBy(reg => reg.region_name).ToList();
+            Console.WriteLine("\nСписок доступных городов:");
+            for (int i = 0; i < regions.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {regions[i].region_name}");
+            }
+            Console.Write("Введите номер города: ");
+            string regionId = Console.ReadLine().Trim();
+            while (true)
+            {
+                while (Regex.IsMatch(regionId, @"\D") || regionId == "" || regionId.Length > 10)
+                {
+                    Console.Write("Введен не верный номер\nВведите номер города: ");
+                    regionId = Console.ReadLine().Trim();
+                }
+                if ((Int32.Parse(regionId) - 1) < regions.Count)
+                {
+                    medical.region_id = regions[Int32.Parse(regionId) - 1].Id;
+                    if (medical.type == "department")
+                    {
+                        var hospitals = _medical.Find(h => h.type == "hospital" && h.region_id == medical.region_id).ToList();
+
+                        if (hospitals.Count == 0)
+                        {
+                            Console.WriteLine("В данном городе нет больниц. Сначала создайте больницу.");
+                            PrintMenu();
+                            return;
+                        }
+                        break;
+                    }
+                    else
+                        break;
+                }
+                else
+                    Console.WriteLine("Город с введенным номером не существует в базе данных");
+                regionId = "";
+            }
+
             Console.Write("\nДля добавления нового мед. учреждения введите данные\n");
             while (string.IsNullOrEmpty(medical.title))
             {
@@ -41,155 +88,112 @@ namespace _4_Lab_MongoDb
                 Console.Write("Адрес: ");
                 medical.address = Console.ReadLine().Trim();
             }
-            Console.WriteLine("\nСписок доступных городов:");
-            for (int i = 0; i < regions.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {regions[i].region_name}");
-            }
-            Console.Write("Введите номер город: ");
-            string regionId = Console.ReadLine().Trim();
-            while(true)
-            {
-                while (Regex.IsMatch(regionId, @"\D") || regionId == "")
-                {
-                    Console.Write("Введен не верный номер\nВведите номер город: ");
-                    regionId = Console.ReadLine();
-                }
-                if ((Int32.Parse(regionId) - 1) < regions.Count)
-                {
-                    medical.region_id = regions[Int32.Parse(regionId) - 1].Id;
-                    break;
-                }
-                else
-                    Console.WriteLine("Город с введенным номером не существует в базе данных");
-                regionId = "";
-            }
-            Console.Write("Укажите номер типа мед. учереждения\n1. Больница\n2. Отделение\nНомер типа учереждения: ");
-            string numberOfType = Console.ReadLine().Trim();
-            while(numberOfType != "1" && numberOfType != "2")
-            {
-                Console.Write("Указано не верное значение\nНомер типа учереждения: ");
-                numberOfType = Console.ReadLine().Trim();
-            }
-            medical.type = numberOfType == "1" ? "hospital" : "department";
-            string action = medical.type == "hospital" ? "Д" : "";
-            while((action != "Д" && action != "Н") && medical.type == "department")
-            {
-                Console.Write("Желаете ли вы указать подотделения для отделения(Д-да, Н-нет): ");
-                action = Console.ReadLine().Trim().ToUpper();
-            }
-            if (action == "Д")
-            {
-                var usedDepartmentIds = _medical
-                    .Find(med => med.departments != null && med.departments.Length > 0)
-                    .Project(med => med.departments)
-                    .ToList()
-                    .SelectMany(arr => arr) // Разворачиваем массивы в плоский список
-                    .Distinct() // Убираем дубликаты
-                    .ToList();
 
-                // Теперь ищем отделения, которых нет в usedDepartmentIds
-                List<Medical_instituction> freeDepartments = _medical
-                    .Find(dep =>
-                        dep.type == "department" &&
-                        !usedDepartmentIds.Contains(dep.Id) && medical.region_id == dep.region_id)
-                    .ToList();
+            if (medical.type == "department")
+            {
 
-                if (freeDepartments.Count == 0)
-                    Console.WriteLine("В данном городе больше нету свободных отделений");
-                else
+                _medical.InsertOne(medical);
+
+                var insertedMedical = _medical.Find(dep => dep.address == medical.address && dep.title == medical.title).FirstOrDefault();
+
+                var hospitals = _medical.Find(h => h.type == "hospital" && h.region_id == medical.region_id).ToList();
+
+                Console.WriteLine("\nСписок доступных больниц:");
+                for (int i = 0; i < hospitals.Count; i++)
                 {
-                    for (int i = 0; i < freeDepartments.Count; i++)
-                    {
-                        Console.WriteLine($"{i + 1}. {freeDepartments[i].title}");
-                    }
-                    string[] departmentId;
-                    Console.WriteLine("Введите номер отделения (если вы желаете указать сразу несколько отделений, то укажите их номера через пробел)");
-                    departmentId = Console.ReadLine().Trim().Split(' ');
-                    for(int i = 0; i < departmentId.Length;i++)
-                    {
-                        if (Regex.IsMatch(departmentId[i], @"^\d+$"))
-                        {
-                            if (((Int32.Parse(departmentId[i]) - 1) < freeDepartments.Count))
-                            {
-                                if(freeDepartments.Find(dep => dep.Id == freeDepartments[(Int32.Parse(departmentId[i]) - 1)].Id) == null)
-                                    medical.departments = medical.departments
-                                        .Concat(new[] { freeDepartments[(Int32.Parse(departmentId[i]) - 1)].Id }) // Добавляем новый ID
-                                        .ToArray();
-                            }
-                        }
-                    }
+                    Console.WriteLine($"{i + 1}. {hospitals[i].title}");
                 }
-                if(medical.type == "hospital")
-                {
-                    Requisites requisite = new Requisites();
 
-                    while (string.IsNullOrEmpty(requisite.hospital_reduce_name))
+                Console.Write("Введите номер больницы, к которой привязать отделение: ");
+                string hospitalId = Console.ReadLine().Trim();
+                while (true)
+                {
+                    while (Regex.IsMatch(hospitalId, @"\D") || hospitalId == "" || hospitalId.Length > 10)
                     {
-                        Console.Write("Сокращенное название больницы: ");
-                        requisite.hospital_reduce_name = Console.ReadLine().Trim();
+                        Console.Write("Введен не верный номер\nВведите номер больницы: ");
+                        hospitalId = Console.ReadLine().Trim();
                     }
-                    while (string.IsNullOrEmpty(requisite.registration_date))
+                    if ((Int32.Parse(hospitalId) - 1) < hospitals.Count)
                     {
-                        Console.Write("Дата регистрации(вводить в формате ГГГГ-ММ-ДД): ");
-                        requisite.registration_date = Console.ReadLine().Trim();
+                        var selectedHosp = hospitals[Int32.Parse(hospitalId) - 1];
+                        
+                        var update = Builders<Medical_instituction>.Update.Push(h => h.departments, insertedMedical.Id);
+                        _medical.UpdateOne(h => h.Id == selectedHosp.Id, update);
+                        break;
                     }
-                    Console.WriteLine("Дальше требуется вставить ФИО глав врача\nПример написания ФИО: Иванов И. И.");
-                    while (string.IsNullOrEmpty(requisite.name_legal_faces))
-                    {
-                        Console.Write("ФИО: ");
-                        requisite.name_legal_faces = Console.ReadLine().Trim();
-                    }
-                    while(true)
-                    {
-                        while (string.IsNullOrEmpty(requisite.ogrn))
-                        {
-                            Console.Write("ОГРН: ");
-                            requisite.ogrn = Console.ReadLine().Trim();
-                        }
-                        if (IsUnique(requisite))
-                            break;
-                        else
-                        {
-                            Console.WriteLine("Введенный ОГРН уже существует в базе");
-                            requisite.ogrn = "";
-                        }
-                    }
-                    while (true)
-                    {
-                        while (string.IsNullOrEmpty(requisite.inn))
-                        {
-                            Console.Write("ИНН: ");
-                            requisite.inn = Console.ReadLine().Trim();
-                        }
-                        if (IsUnique(requisite))
-                            break;
-                        else
-                        {
-                            Console.WriteLine("Введенный ИНН уже существует в базе");
-                            requisite.inn = "";
-                        }
-                    }
-                    while (true)
-                    {
-                        while (string.IsNullOrEmpty(requisite.kpp))
-                        {
-                            Console.Write("КПП: ");
-                            requisite.kpp = Console.ReadLine().Trim();
-                        }
-                        if (IsUnique(requisite))
-                            break;
-                        else
-                        {
-                            Console.WriteLine("Введенный КПП уже существует в базе");
-                            requisite.kpp = "";
-                        }
-                    }
-                    medical.requisites = requisite;
+                    else
+                        Console.WriteLine("Больница с введенным номером не существует в базе данных");
+                    hospitalId = "";
                 }
             }
-            _medical.InsertOne(medical);
-            Console.WriteLine("Мед. учереждение успешно добавлено в базу данных");
+            else // Если создаем больницу - заполняем реквизиты
+            {
+                medical.requisites = new Requisites();
+
+                while (string.IsNullOrEmpty(medical.requisites.hospital_reduce_name))
+                {
+                    Console.Write("Сокращенное название больницы: ");
+                    medical.requisites.hospital_reduce_name = Console.ReadLine().Trim();
+                }
+                while (string.IsNullOrEmpty(medical.requisites.registration_date))
+                {
+                    Console.Write("Дата регистрации(вводить в формате ГГГГ-ММ-ДД): ");
+                    medical.requisites.registration_date = Console.ReadLine().Trim();
+                }
+                Console.WriteLine("Дальше требуется вставить ФИО глав врача\nПример написания ФИО: Иванов И. И.");
+                while (string.IsNullOrEmpty(medical.requisites.name_legal_faces))
+                {
+                    Console.Write("ФИО: ");
+                    medical.requisites.name_legal_faces = Console.ReadLine().Trim();
+                }
+                while (true)
+                {
+                    while (string.IsNullOrEmpty(medical.requisites.ogrn))
+                    {
+                        Console.Write("ОГРН: ");
+                        medical.requisites.ogrn = Console.ReadLine().Trim();
+                    }
+                    if (IsUnique(medical.requisites))
+                        break;
+                    else
+                    {
+                        Console.WriteLine("Введенный ОГРН уже существует в базе");
+                        medical.requisites.ogrn = "";
+                    }
+                }
+                while (true)
+                {
+                    while (string.IsNullOrEmpty(medical.requisites.inn))
+                    {
+                        Console.Write("ИНН: ");
+                        medical.requisites.inn = Console.ReadLine().Trim();
+                    }
+                    if (IsUnique(medical.requisites))
+                        break;
+                    else
+                    {
+                        Console.WriteLine("Введенный ИНН уже существует в базе");
+                        medical.requisites.inn = "";
+                    }
+                }
+                while (true)
+                {
+                    while (string.IsNullOrEmpty(medical.requisites.kpp))
+                    {
+                        Console.Write("КПП: ");
+                        medical.requisites.kpp = Console.ReadLine().Trim();
+                    }
+                    if (IsUnique(medical.requisites))
+                        break;
+                    else
+                    {
+                        Console.WriteLine("Введенный КПП уже существует в базе");
+                        medical.requisites.kpp = "";
+                    }
+                }
+                _medical.InsertOne(medical);
+            }
+            Console.WriteLine("Мед. учреждение успешно добавлено в базу данных");
             PrintMenu();
         }
         public bool IsUnique(Requisites requisite)
@@ -241,7 +245,7 @@ namespace _4_Lab_MongoDb
         {
             Console.Write("\nВведите номер мед. учереждения: ");
             string id = Console.ReadLine();
-            while (Regex.IsMatch(id, @"\D") || id == "")
+            while (Regex.IsMatch(id, @"\D") || id == "" || id.Length > 10)
             {
                 Console.Write("Введен не верный номер\nВведите номер мед. учереждения: ");
                 id = Console.ReadLine();
@@ -256,12 +260,12 @@ namespace _4_Lab_MongoDb
                 Console.WriteLine($"Адрес: {medical.address}");
                 Console.WriteLine($"Город: {regionAll.Find(city => city.Id == medical.region_id).region_name}");
                 string departmentTitle = "";
-                for( int i = 0; i < medical.departments.Length; i++)
+                for (int i = 0; i < medical.departments.Length; i++)
                 {
                     departmentTitle += $"{medicalAll.Find(dep => dep.Id == medical.departments[i]).title} ";
                 }
                 Console.WriteLine($"Номер отделения: {departmentTitle}");
-                if(medical.type == "hospital")
+                if (medical.type == "hospital")
                 {
                     Console.WriteLine($"Сокращенное название города: {medical.requisites.hospital_reduce_name}");
                     Console.WriteLine($"Дата регистрации: {medical.requisites.registration_date}");
@@ -312,7 +316,8 @@ namespace _4_Lab_MongoDb
                 foreach (var depId in medicalToUpdate.departments)
                 {
                     var dep = medicalAll.Find(d => d.Id == depId);
-                    if (dep != null) Console.WriteLine($"   - {dep.title}");
+                    if (dep != null) 
+                        Console.WriteLine($"   - {dep.title}");
                 }
 
                 if (isHospital && medicalToUpdate.requisites != null)
@@ -345,7 +350,7 @@ namespace _4_Lab_MongoDb
                         Console.Write("Новый адрес: ");
                         medicalToUpdate.address = Console.ReadLine().Trim();
                         break;
-                    case "4":
+                    case "4": // здесь наверное нужно ограничение сделать так чтобы после смены города он привязывался к определеному городу в котором есть больницы
                         Console.WriteLine("\nДоступные города:");
                         for (int i = 0; i < regionAll.Count; i++)
                         {
@@ -522,7 +527,7 @@ namespace _4_Lab_MongoDb
             string id = Console.ReadLine();
             while (true)
             {
-                while (Regex.IsMatch(id, @"\D") || id == "")
+                while (Regex.IsMatch(id, @"\D") || id == "" || id.Length > 10)
                 {
                     Console.Write("Введен не верный номер\nВведите номер мед. учереждения: ");
                     id = Console.ReadLine();
@@ -557,7 +562,7 @@ namespace _4_Lab_MongoDb
             List<Medical_instituction> medicalAll = _medical.Find(medical => true).SortBy(f => f.Id).ToList();
             foreach (string id in idDelete)
             {
-                if (Regex.IsMatch(id, @"^\d+$") && id != "")
+                if (Regex.IsMatch(id, @"^\d+$") && id != "" && id.Length < 10)
                 {
                     if ((Int32.Parse(id) - 1) < medicalAll.Count && Int32.Parse(id) > 1)
                     {
@@ -578,11 +583,27 @@ namespace _4_Lab_MongoDb
         private void RegionCreate()
         {
             var region = new Region();
+            string helpreg = "";
+            int countreg = 0;
             Console.Write("\nДля добавления нового города введите данные\n");
-            while(string.IsNullOrEmpty(region.region_name))
+            while (true)
             {
-                Console.Write("Название: ");
-                region.region_name = Console.ReadLine().Trim();
+                while (string.IsNullOrEmpty(region.region_name) || helpreg == region.region_name)
+                {
+                    if(helpreg == region.region_name && countreg > 0)
+                        Console.WriteLine("Название города должно быть уникальным");
+                    Console.Write("Название: ");
+                    region.region_name = Console.ReadLine().Trim();
+                }
+                var res = _region.Find(reg => reg.region_name == CultureInfo.CurrentCulture.TextInfo.ToTitleCase(region.region_name)).ToList();
+                if (res.Count == 0)
+                    break;
+                else
+                {
+                    //Console.WriteLine("Название города должно быть уникальным");
+                    countreg++;
+                    helpreg = region.region_name;
+                }
             }
             _region.InsertOne(region);
             Console.WriteLine("Город успешно вставлен");
@@ -606,7 +627,7 @@ namespace _4_Lab_MongoDb
         {
             Console.Write("\nВведите номер города: ");
             string id = Console.ReadLine();
-            while (Regex.IsMatch(id, @"\D") || id == "")
+            while (Regex.IsMatch(id, @"\D") || id == "" || id.Length > 10)
             {
                 Console.Write("Введен не верный номер\nВведите номер города: ");
                 id = Console.ReadLine();
@@ -698,7 +719,7 @@ namespace _4_Lab_MongoDb
             string id = Console.ReadLine();
             while (true)
             {
-                while (Regex.IsMatch(id, @"\D") || id == "")
+                while (Regex.IsMatch(id, @"\D") || id == "" || id.Length > 10)
                 {
                     Console.Write("Введен не верный номер\nВведите номер города: ");
                     id = Console.ReadLine();
@@ -708,7 +729,7 @@ namespace _4_Lab_MongoDb
                 {
                     Region regionDelete = regionAll[Int32.Parse(id) - 1];
                     List<Medical_instituction> medicalAll = _medical.Find(reg => reg.region_id == regionDelete.Id).ToList();
-                    if (medicalAll == null)
+                    if (medicalAll.Count == 0)
                     {
                         var result = _region.DeleteOne(reg => reg.Id == regionDelete.Id);
                         if (result.DeletedCount > 0)
@@ -734,12 +755,12 @@ namespace _4_Lab_MongoDb
             List<Region> regionAll = _region.Find(reg => true).SortBy(f => f.Id).ToList();
             foreach (string id in idDelete)
             {
-                if (Regex.IsMatch(id, @"^\d+$") && id != "")
+                if (Regex.IsMatch(id, @"^\d+$") && id != "" && id.Length < 10)
                 {
                     if ((Int32.Parse(id) - 1) < regionAll.Count && Int32.Parse(id) > 0)
                     {
                         List<Medical_instituction> medicalAll = _medical.Find(reg => reg.region_id == regionAll[Int32.Parse(id) - 1].Id).ToList();
-                        if (medicalAll == null)
+                        if (medicalAll.Count == 0)
                         {
                             var result = _region.DeleteOne(reg => reg.Id == regionAll[Int32.Parse(id) - 1].Id);
                             count += result.DeletedCount;

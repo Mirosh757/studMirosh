@@ -43,7 +43,13 @@ namespace _4_Lab_MongoDb
                 else
                 {
                     string[] splitweb = value.Split(".");
-                    if (splitweb[0].Length > 2 && splitweb[1].Length > 2)
+                    bool flag = true;
+                    for(int i = 0;i < splitweb.Length;i++)
+                    {
+                        if (splitweb[i].Length < 2)
+                            flag = false;
+                    }
+                    if (flag)
                         _website = value;
                     else
                         Console.WriteLine("Не верно указан веб-сайт");
